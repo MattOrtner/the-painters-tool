@@ -11,9 +11,11 @@
 
 .inputs {
   border: 2px solid black;
-  display: flex;
+  display: grid;
+  grid-template-columns: 90% 10%;
   flex-direction: column;
-  width: 300px;
+  width: 380px;
+  border-radius: .5rem;
 }
 
 .inputs>* {
@@ -22,27 +24,29 @@
 
 .info-container {
   height: 200px;
-  width: 300px;
+  width: 380px;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  border-radius: .5rem;
 }
 
 .totals {
   border: 2px solid black;
   height: 150px;
-  width: 300px;
+  width: 380px;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 30% 30% 30%;
   grid-gap: 2px;
+  border-radius: .5rem;
+  margin-top: 5px;
 }
 
 .totals>* {
-  margin: 0 0 0 45px;
-  /* border: 1px solid black; */
+  margin: 15px 0 0 45px;
   font-size: 15px;
 }
 
@@ -51,8 +55,10 @@
 }
 
 .subtractions {
-  border: 1px solid black;
+  border: 2px solid black;
   margin: 5px;
+  border-radius: 10px;
+  padding: 7px;
 }
 
 .paint-container {
@@ -64,5 +70,5 @@
 }
 
 .paint-container>* {
-  margin:5px;
+  margin: 5px;
 }

@@ -1,9 +1,9 @@
-double check the logic for adding primer/ maybe seperate the concerns
+# for the future!
+add functionality for subtractions
 
-# ideas for the future
-user can add an email to the form to send them a copy of the quote
+user can add an email to the form to send their client and themselves a copy of the quote
+there email should be stored in there menu screen to decrease on screen clutter
 
-possibly adding smaller print
 or it would format into an email?
 shared google doc?
 

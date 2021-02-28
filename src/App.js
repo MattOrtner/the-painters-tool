@@ -19,25 +19,34 @@ function App() {
     const value = e.target.value
     setHwInputs({...hwInputs, [name]: value})
   }
+
   const findSquareFeet = () => {
-      const total = hwInputs.height * hwInputs.width 
-      setTotalFootage(parseInt(total))
+    const widthHeight = hwInputs.width * hwInputs.height
+    const lengthHeight = hwInputs.length * hwInputs.height
+      setTotalFootage(parseInt(widthHeight + lengthHeight) * 2)
   }
+
   const findRate = () => {
-    const { height, width, rate } = hwInputs
-    const newRate = parseInt(rate) * (parseInt(height) * parseInt(width))
+    const { rate } = hwInputs
+    const newRate = (parseInt(rate) * parseInt(totalFootage))
     setRate(newRate)
   }
-  const findGallonsAndCost = () => {
-    const { height, width } = hwInputs
-    let totalArea = (parseInt(height) * parseInt(width)) 
+
+  const findNumOfGallons = () => {
+    const { height, width, length } = hwInputs
+    let totalArea = ((parseInt(width) + parseInt(length)) * 2) * parseInt(height) 
     let calcGallons = 0
-    while (totalArea >= 0) {
+    while (totalArea > 0) {
       totalArea -= 350
       calcGallons += 1
     }
-    setPaintCost(((calcGallons * 25) * 2) + ((calcGallons * 25)))
     setGallons(calcGallons * 2)
+  }
+
+  const findGallonsCost = () => {
+    const totalPaint = (gallons * 25)
+    const totalPrimer = ((gallons / 2) * 25) 
+    setPaintCost(totalPaint + totalPrimer)
   }
 
   const findTotalCost = () => {
@@ -46,10 +55,11 @@ function App() {
 
   const calculate = () => {
     findSquareFeet()
+    findNumOfGallons()
   }
 
   const calculateTotal = () => {
-    findGallonsAndCost()
+    findGallonsCost()
     findRate()
   }
 
@@ -59,12 +69,12 @@ function App() {
   return (
     <div className="App">
       <div className="inputs">
-        <textarea name="" id="" cols="30" rows="2" placeholder="Keep track of all 
-          wall lengths here. Then add them together.">  
-        </textarea>
         <input type="number" placeholder="length" name="length" onChange={handleHWinputs} />
+        <div>ft.</div>
         <input type="number" placeholder="width" name="width" onChange={handleHWinputs} />
+        <div>ft.</div>
         <input type="number" placeholder="height" name="height" onChange={handleHWinputs}  />
+        <div>ft.</div>
         <input type="button" value="CALC SQUARE FOOTAGE" onClick={calculate}/>
       </div>
       <div className="subtractions">+ ADD ADJUSTMENTS FOR DOORS AND WINDOWS</div>
