@@ -36,8 +36,8 @@ function App() {
       totalArea -= 350
       calcGallons += 1
     }
-    setPaintCost(calcGallons * 25)
-    setGallons(calcGallons)
+    setPaintCost(((calcGallons * 25) * 2) + ((calcGallons * 25)))
+    setGallons(calcGallons * 2)
   }
 
   const findTotalCost = () => {
@@ -62,16 +62,28 @@ function App() {
         <textarea name="" id="" cols="30" rows="2" placeholder="Keep track of all 
           wall lengths here. Then add them together.">  
         </textarea>
+        <input type="number" placeholder="length" name="length" onChange={handleHWinputs} />
+        <input type="number" placeholder="width" name="width" onChange={handleHWinputs} />
         <input type="number" placeholder="height" name="height" onChange={handleHWinputs}  />
-        <input type="number" placeholder="length" name="width" onChange={handleHWinputs} />
-        <input type="number" placeholder="rate" name="rate" onChange={handleHWinputs} />
         <input type="button" value="CALC SQUARE FOOTAGE" onClick={calculate}/>
-        <input type="button" value="ADD RATE + COST" onClick={calculateTotal} />
       </div>
+      <div className="subtractions">+ ADD ADJUSTMENTS FOR DOORS AND WINDOWS</div>
       <div className="info-container">
         <span className="info">{totalFootage} sq.ft.</span>
-        <span className="info">{gallons} gallon (1 gallon = 350sq.ft.)</span>
-        {/* <span className="info">{time} Hours</span> */}
+        <div>X</div>
+        <div className="rate-container">
+          <input type="number" placeholder="rate" name="rate" onChange={handleHWinputs} />
+          <input type="button" value="ADD RATE + COST" onClick={calculateTotal} />
+        </div>
+        <div className="paint-container">
+          <div>
+            <div className="info">{gallons / 2} gal primer</div>
+            <div className="info">{gallons} gal paint</div>
+          </div>
+          <div>X</div>
+          <div>$25 per gallon</div>
+        </div>
+          <div className="small-print">[ 350 square feet per gallon ]</div>
       </div>
       <div className="totals">
         <div>cost of work </div>
