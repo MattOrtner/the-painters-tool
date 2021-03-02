@@ -1,9 +1,14 @@
 import './App.css';
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
+import SubtractionInput from './components/SubtractionInput'
+import SubtractionList from './components/SubtractionList'
+
 
 function App() {
   const [hwInputs, setHwInputs] = useState({})
   const [totalFootage, setTotalFootage] = useState(0)
+  const [subtractionList, setSubtractionList] = useState([])
+  const [isSubtracted, setIsSubtracted] = useState(false)
 
   const [rate, setRate] = useState(0)
   const [paintCost, setPaintCost] = useState(0)
@@ -63,9 +68,6 @@ function App() {
     findRate()
   }
 
-  /**
-   * Add subtractions - areas like windows and doors
-   */
   return (
     <div className="App">
       <div className="inputs">
@@ -75,9 +77,20 @@ function App() {
         <div>ft.</div>
         <input type="number" placeholder="height" name="height" onChange={handleHWinputs}  />
         <div>ft.</div>
-        <input type="button" value="CALC SQUARE FOOTAGE" onClick={calculate}/>
+        <input type="button" value="CALC SQ. FOOTAGE" onClick={calculate}/>
       </div>
-      <div className="subtractions">+ ADD ADJUSTMENTS FOR DOORS AND WINDOWS</div>
+      <div className="subtractions">
+        {isSubtracted ? 
+          <>
+            <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
+          </>
+          :
+          <button className="subtract-button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+        }
+      </div>
+
+      <SubtractionList subtractionList={subtractionList} />
+      
       <div className="info-container">
         <span className="info">{totalFootage} sq.ft.</span>
         <div>X</div>

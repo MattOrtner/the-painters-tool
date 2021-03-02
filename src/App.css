@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: 90% 10%;
   flex-direction: column;
-  width: 380px;
+  width: 400px;
   border-radius: .5rem;
 }
 
@@ -24,7 +24,7 @@
 
 .info-container {
   height: 200px;
-  width: 380px;
+  width: 400px;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@
 .totals {
   border: 2px solid black;
   height: 150px;
-  width: 380px;
+  width: 400px;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 30% 30% 30%;
@@ -55,12 +55,29 @@
 }
 
 .subtractions {
+  display: flex;
+  justify-content: center;
   border: 2px solid black;
-  margin: 5px;
+  margin: .25rem;
   border-radius: 10px;
-  padding: 7px;
+  padding: .25rem;
+  width: 400px;
+}
+.subtraction-list {
+  display: flex;
+  padding: .25rem;
+  margin: .25rem;
+  justify-content: center;
+  width: 400px;
+  border-radius: .5rem;
 }
 
+.subtract-button {
+  border: none;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
 .paint-container {
   height: max-content;
   width: max-content;
