@@ -21,8 +21,10 @@ function App() {
 
   const subtractFromTotal = (subtractionAmount) => {
     const newSquareFootage = totalFootage - subtractionAmount
+
     setTotalFootage(newSquareFootage)
   }
+
   const handleHWinputs = (e) => {
     const name = e.target.name
     const value = e.target.value

@@ -22,12 +22,14 @@ const SubtractionInput = ({ subtractFromTotal, subtractionList, setSubtractionLi
         className="subtraction-input"
         name="height-subtraction" 
         placeholder="height" 
+        required
       />
       <input 
       type="number"
         className="subtraction-input"
         name="width-subtraction" 
         placeholder="width" 
+        required
       />
       <input type="button" value="+ subtraction" onClick={inputSubmit}/>
     </div>
