@@ -2,6 +2,7 @@ import './App.css';
 import { useState, useEffect } from 'react'
 import SubtractionInput from './components/SubtractionInput'
 import SubtractionList from './components/SubtractionList'
+import Totals from './components/Totals'
 
 
 function App() {
@@ -114,14 +115,7 @@ function App() {
         </div>
           <div className="small-print">[ 350 square feet per gallon ]</div>
       </div>
-      <div className="totals">
-        <div>cost of work </div>
-        <div>$ {rate} </div>
-        <div>estimate cost of paint </div>
-        <div>$ {paintCost}</div>
-        <div>total estimate </div>
-        <div>$ {totalCost}</div>
-      </div>
+      <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
     </div>
   );
 }
