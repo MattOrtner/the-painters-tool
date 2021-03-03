@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted}) => {
+const SubtractionInput = ({ subtractFromTotal, subtractionList, setSubtractionList, setIsSubtracted}) => {
   const [subtractionInput, setSubtractionInput] = useState([])
 
   const handleSubInput = (e) => {
@@ -11,6 +11,7 @@ const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted
   const inputSubmit = () => {
     const sqFtOfReduced = subtractionInput.reduce((acc, dimension) => acc * dimension)
     setSubtractionList([...subtractionList, sqFtOfReduced])
+    subtractFromTotal(sqFtOfReduced)
     setIsSubtracted(false)
   }
 

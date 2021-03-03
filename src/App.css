@@ -63,13 +63,16 @@
   padding: .25rem;
   width: 400px;
 }
+
 .subtraction-list {
   display: flex;
-  padding: .25rem;
-  margin: .25rem;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   width: 400px;
   border-radius: .5rem;
+  margin: .25rem;
+  padding: .25rem;
 }
 
 .subtract-button {
@@ -78,6 +81,7 @@
   width: 100%;
   cursor: pointer;
 }
+
 .paint-container {
   height: max-content;
   width: max-content;

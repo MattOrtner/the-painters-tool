@@ -7,7 +7,7 @@ const SubtractionList = ({subtractionList}) => {
     <div className="subtraction-list">
       {subtractionList.length ?
         subtractionList.map((subtractionAmount, index) =>
-          <div key={index}>{subtractionAmount} Sq.Ft.</div>
+          <div key={index}>-{subtractionAmount} Sq.Ft.</div>
         )
         :
         ''

@@ -19,6 +19,10 @@ function App() {
     findTotalCost()
   })
 
+  const subtractFromTotal = (subtractionAmount) => {
+    const newSquareFootage = totalFootage - subtractionAmount
+    setTotalFootage(newSquareFootage)
+  }
   const handleHWinputs = (e) => {
     const name = e.target.name
     const value = e.target.value
@@ -82,7 +86,7 @@ function App() {
       <div className="subtractions">
         {isSubtracted ? 
           <>
-            <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
+            <SubtractionInput subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
           </>
           :
           <button className="subtract-button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
