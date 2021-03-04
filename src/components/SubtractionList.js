@@ -5,9 +5,14 @@ const SubtractionList = ({subtractionList}) => {
   
   return (
     <div className="subtraction-list">
-      {subtractionList.length ?
+      {subtractionList.length
+        ?
+        
         subtractionList.map((subtractionAmount, index) =>
-          <div key={index}>-{subtractionAmount} Sq.Ft.</div>
+          <div className="WDO-range">
+            <div key={index}>-{subtractionAmount} Sq.Ft.</div>
+            <div className="delete-subtraction">-</div>
+          </div>
         )
         :
         ''

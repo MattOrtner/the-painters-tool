@@ -93,3 +93,8 @@
 .paint-container>* {
   margin: 5px;
 }
+
+.DWO-selection-container {
+  display: flex;
+  justify-content: space-around;
+}
