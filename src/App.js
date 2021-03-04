@@ -77,6 +77,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Enter Dimensions of Room</h1>
       <div className="inputs">
         <input type="number" placeholder="length" name="length" onChange={handleHWinputs} />
         <div>ft.</div>
@@ -89,20 +90,21 @@ function App() {
       <div className="subtractions">
         {isSubtracted ? 
           <>
-            <SubtractionInput subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
+            <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
           </>
           :
           <button className="subtract-button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
         }
       </div>
 
-      <SubtractionList subtractionList={subtractionList} />
+      <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} />
       
       <div className="info-container">
         <span className="info">{totalFootage} sq.ft.</span>
         <div>X</div>
         <div className="rate-container">
-          <input type="number" placeholder="rate" name="rate" onChange={handleHWinputs} />
+          <div>$</div>
+          <input type="number" placeholder="rate per square foot" name="rate" onChange={handleHWinputs} />
           <input type="button" value="ADD RATE + COST" onClick={calculateTotal} />
         </div>
         <div className="paint-container">
@@ -114,6 +116,7 @@ function App() {
           <div>$25 per gallon</div>
         </div>
           <div className="small-print">[ 350 square feet per gallon ]</div>
+          <div className="small-print">[ ESTIMATED SUPPLIES NEEDED & AVERAGE COST ]</div>
       </div>
       <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
     </div>
