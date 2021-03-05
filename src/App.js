@@ -77,47 +77,51 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Enter Dimensions of Room</h1>
-      <div className="inputs">
-        <input type="number" placeholder="length" name="length" onChange={handleLHWInputs} />
-        <div>ft.</div>
-        <input type="number" placeholder="width" name="width" onChange={handleLHWInputs} />
-        <div>ft.</div>
-        <input type="number" placeholder="height" name="height" onChange={handleLHWInputs}  />
-        <div>ft.</div>
-        <input type="button" value="CALC SQ. FOOTAGE" onClick={calculate}/>
+      <div className="container left">
+        <h1>Enter Dimensions of Room</h1>
+        <div className="inputs">
+          <input type="number" placeholder="length" name="length" onChange={handleLHWInputs} />
+          <div>ft.</div>
+          <input type="number" placeholder="width" name="width" onChange={handleLHWInputs} />
+          <div>ft.</div>
+          <input type="number" placeholder="height" name="height" onChange={handleLHWInputs}  />
+          <div>ft.</div>
+          <input type="button" value="CALC SQ. FOOTAGE" onClick={calculate}/>
+        </div>
+        <div className="add-subtraction">
+          {isSubtracted ? 
+            <>
+              <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
+            </>
+            :
+            <button className="subtract-button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+          }
+        </div>
       </div>
-      <div className="subtractions">
-        {isSubtracted ? 
-          <>
-            <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
-          </>
-          :
-          <button className="subtract-button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
-        }
-      </div>
-
-      <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} />
-      
-      <div className="info-container">
-        <div className="info">TOTAL: {totalFootage} sq.ft.</div>
-        <div className="paint-container">
-          <div>
-            <div className="info">{gallons / 2} gal primer</div>
-            <div className="info">{gallons} gal paint</div>
+      <div className="container center">
+        <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} /> 
+        <div className="info-container">
+          <div className="info">TOTAL: {totalFootage} sq.ft.</div>
+          <div className="paint-container">
+            <div>
+              <div className="info">{gallons / 2} gal primer</div>
+              <div className="info">{gallons} gal paint</div>
+            </div>
+            <div>X</div>
+            <div>$25 per gallon</div>
           </div>
-          <div>X</div>
-          <div>$25 per gallon</div>
+          <div className="rate-container">
+            <div>$</div>
+            <input type="number" placeholder="rate per square foot" name="rate" onChange={handleLHWInputs} />
+            <input type="button" value="ADD RATE + COST" onClick={calculateTotal} />
+          </div>
+          <div className="small-print">[ ESTIMATED SUPPLIES NEEDED & AVERAGE COST ]</div>
+          <div className="small-print">[ 350 square feet per gallon ]</div>
         </div>
-        <div className="rate-container">
-          <div>$</div>
-          <input type="number" placeholder="rate per square foot" name="rate" onChange={handleLHWInputs} />
-          <input type="button" value="ADD RATE + COST" onClick={calculateTotal} />
-        </div>
-        <div className="small-print">[ ESTIMATED SUPPLIES NEEDED & AVERAGE COST ]</div>
-        <div className="small-print">[ 350 square feet per gallon ]</div>
       </div>
-      <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
+      <div className="container right">
+        <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
+      </div>
     </div>
   );
 }

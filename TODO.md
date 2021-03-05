@@ -1,5 +1,6 @@
 # for the future!
-
+media query layout
+- desktop first
 add delete button to subtraction list 
 allow user to change the paint cost
 allow an option to just put in the total square footage
