@@ -17,18 +17,17 @@
 .App .container.left {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: strech;
 }
 /* .container-center {
   flex-grow: 1;
   order: 2;
 }
+*/
 
-.container-right {
-  flex-grow: 1;
-  order: 3;
-} */
+.totals {
 
+}
 .inputs {
   border: 2px solid black;
   display: grid;
@@ -59,7 +58,6 @@
   grid-gap: 2px;
   border-radius: .5rem;
   margin-top: 5px;
-  height: 100%;
 }
 
 .totals>* {

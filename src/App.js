@@ -97,9 +97,9 @@ function App() {
             <button className="subtract-button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
           }
         </div>
-      </div>
-      <div className="container center">
         <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} /> 
+      </div> 
+      <div className="container right">
         <div className="info-container">
           <div className="info">TOTAL: {totalFootage} sq.ft.</div>
           <div className="paint-container">
@@ -118,8 +118,6 @@ function App() {
           <div className="small-print">[ ESTIMATED SUPPLIES NEEDED & AVERAGE COST ]</div>
           <div className="small-print">[ 350 square feet per gallon ]</div>
         </div>
-      </div>
-      <div className="container right">
         <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
       </div>
     </div>
