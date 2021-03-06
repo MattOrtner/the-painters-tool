@@ -6,39 +6,44 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
-  /* background-color: #ffffff; */
+  box-sizing: border-box;
 }
-.App > .container {
+
+.App>.container {
+  display: flex;
   height: 500px;
   width: 500px;
   border: 1px solid orange;
 }
 
 .App .container.left {
-  display: flex;
   flex-direction: column;
-  align-items: strech;
+  align-content: center;
 }
-/* .container-center {
-  flex-grow: 1;
-  order: 2;
-}
-*/
 
-.totals {
+.App .container.right {
+  flex-direction: column;
 
 }
+
 .inputs {
   border: 2px solid black;
   display: grid;
   grid-template-columns: 90% 10%;
   flex-direction: column;
   border-radius: .5rem;
-  width:100%;
 }
 
 .inputs>* {
   margin: 10px;
+  height: 2rem;
+  font-size: 1rem
+}
+
+.toggle {
+  border: none;
+  height: max-content;
+  width: max-content;
 }
 
 .info-container {
@@ -47,10 +52,12 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  flex-grow: 1;
   border-radius: .5rem;
 }
 
 .totals {
+  flex-grow: 1.25;
   border: 2px solid black;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -61,33 +68,26 @@
 }
 
 .totals>* {
-  margin: 15px 0 0 45px;
   font-size: 15px;
+  justify-self: center;
+  align-self: center;
 }
 
 .small-print {
   font-size: 12px;
 }
 
+.button {
+  font-size: 1rem;
+  border-radius: .5rem;
+  cursor: pointer;
+}
+
 .add-subtraction {
   display: flex;
   justify-content: center;
-  border: 2px solid ;
-  margin: .25rem;
+  border: 2px solid;
   border-radius: 10px;
-  padding: .25rem;
-  width: 100%;
-}
-
-.subtraction-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  border-radius: .5rem;
-  border: 2px solid black;
-  margin: .25rem;
   padding: .25rem;
 }
 
@@ -96,6 +96,22 @@
   height: 100%;
   width: 100%;
   cursor: pointer;
+  background-color: blueviolet;
+}
+.subtractions-container {
+  height: 117px;
+  overflow: scroll;
+}
+.subtraction-list {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: .5rem;
+  border: 2px solid black;
+  row-gap: 5px;
+  /* margin: .25rem; */
+  /* padding: .25rem; */
 }
 
 .paint-container {

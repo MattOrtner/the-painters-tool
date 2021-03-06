@@ -11,21 +11,18 @@ const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted
   }
   
   const onInputSubmit = () => {
-    // const totalSqFt = subtractionInput.widthSub * subtractionInput.heightSub
-    // setSubtractionInput({ ...setSubtractionInput, 'sqFt': totalSqFt})
-    setSubtractionList([...subtractionList, subtractionInput])
-    // subtractFromTotal(subtractionInput.totalSqFt)
+    setSubtractionList([subtractionInput, ...subtractionList])
     setIsSubtracted(false)
   }
 
   return (
       <div onChange={onInputChange} >
         <div className="DWO-selection-container">
-          <input type="checkbox" checkbox="door" value="door" name="name"/>
+          <input type="radio" radio="door" value="door" name="name" />
           <label htmlFor="door">Door</label>
-        <input type="checkbox" checkbox="window" value="window" name="name"/>
+        <input type="radio" radio="window" value="window" name="name"/>
           <label htmlFor="window">Window</label>
-        <input type="checkbox" checkbox="other" value="other" name="name"/>
+        <input type="radio" radio="other" value="other" name="name"/>
           <label htmlFor="other">Other</label>
         </div>
         <input 
