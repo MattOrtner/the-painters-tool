@@ -98,7 +98,7 @@ function App() {
           }
         </div>
         {subtractionList.length ? 
-          <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} /> 
+          <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
         :
           ''}
       </div> 
