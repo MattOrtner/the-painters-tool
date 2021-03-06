@@ -86,7 +86,7 @@ function App() {
           <div>ft.</div>
           <input type="number" className="input" placeholder="height" name="height" onChange={handleLHWInputs}  />
           <div>ft.</div>
-          <input type="button" value="CALC SQ. FOOTAGE" onClick={calculate}/>
+          <input className="button" type="button" value="CALC SQ. FOOTAGE" onClick={calculate}/>
         </div>
         <div className="add-subtraction">
           {isSubtracted ? 
@@ -94,7 +94,7 @@ function App() {
               <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
             </>
             :
-            <button className="subtract-button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+            <button className="toggle button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
           }
         </div>
         {subtractionList.length ? 
@@ -116,7 +116,7 @@ function App() {
           <div className="rate-container">
             <div>$</div>
             <input type="number" placeholder="rate per square foot" name="rate" onChange={handleLHWInputs} />
-            <input type="button" value="ADD RATE + COST" onClick={calculateTotal} />
+            <input type="button" className="button" value="ADD RATE + COST" onClick={calculateTotal} />
           </div>
           <div className="small-print">[ ESTIMATED SUPPLIES NEEDED & AVERAGE COST ]</div>
           <div className="small-print">[ 400 square feet per gallon ]</div>

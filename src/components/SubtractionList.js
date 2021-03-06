@@ -12,20 +12,22 @@ const SubtractionList = ({ subtractionList, subtractFromTotal }) => {
 
   return (
     <div className="subtraction-list">
-      {subtractionList.length
-        ?
-        
-        subtractionList.map((subtractionCase, index) =>
-          <div className="DOW-single-subtraction">
-            <div key={index}>{subtractionCase.name}</div>
-            <div key={`${index}a`}>-{subtractionCase.height * subtractionCase.width} Sq.Ft.</div>
-            <div className="delete-subtraction">delete</div>
-          </div>
-        )
+      <div className="subtractions-container">
+        {subtractionList.length
+          ?
+          
+          subtractionList.map((subtractionCase, index) =>
+            <div className="DOW-single-subtraction">
+              <div key={index}>{subtractionCase.name}</div>
+              <div key={`${index}a`}>-{subtractionCase.height * subtractionCase.width} Sq.Ft.</div>
+              <div className="delete-subtraction button">delete</div>
+            </div>
+          )
         :
-        ''
-      }
-      <button onClick={subFromTotal}>APPLY SUBTRACTIONS</button>
+          ''
+        }
+      </div>
+      <button className="button " onClick={subFromTotal}>APPLY SUBTRACTIONS</button>
     </div>
   )
 }
