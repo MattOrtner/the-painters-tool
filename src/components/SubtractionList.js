@@ -6,7 +6,6 @@ const SubtractionList = ({ subtractionList, subtractFromTotal }) => {
   const subFromTotal = () => {
     if(subtractionList.length === 0) return alert("Must fill-in subtractions to apply subtractions")
     const individualSubtractions = subtractionList.map((subtractionCase) => subtractionCase.height * subtractionCase.width)
-    console.log(individualSubtractions);
     const subtractionSqFt = individualSubtractions.reduce((acc, sqFt) => acc + sqFt)
     subtractFromTotal(subtractionSqFt)
   }

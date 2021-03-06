@@ -6,39 +6,43 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
+  box-sizing: border-box;
+  overflow: auto;
   /* background-color: #ffffff; */
 }
-.App > .container {
+
+.App>.container {
+  display: flex;
   height: 500px;
   width: 500px;
   border: 1px solid orange;
 }
 
 .App .container.left {
-  display: flex;
   flex-direction: column;
-  align-items: strech;
+  align-content: center;
 }
-/* .container-center {
-  flex-grow: 1;
-  order: 2;
-}
-*/
 
-.totals {
+.App .container.right {
+  flex-direction: column;
 
 }
+
 .inputs {
   border: 2px solid black;
   display: grid;
   grid-template-columns: 90% 10%;
   flex-direction: column;
   border-radius: .5rem;
-  width:100%;
 }
 
 .inputs>* {
   margin: 10px;
+  height: 2rem;
+  font-size: 1rem
+}
+.input {
+
 }
 
 .info-container {
@@ -47,10 +51,12 @@
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  flex-grow: 1;
   border-radius: .5rem;
 }
 
 .totals {
+  flex-grow: 1.25;
   border: 2px solid black;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -61,8 +67,9 @@
 }
 
 .totals>* {
-  margin: 15px 0 0 45px;
   font-size: 15px;
+  justify-self: center;
+  align-self: center;
 }
 
 .small-print {
@@ -72,19 +79,19 @@
 .add-subtraction {
   display: flex;
   justify-content: center;
-  border: 2px solid ;
-  margin: .25rem;
+  border: 2px solid;
   border-radius: 10px;
   padding: .25rem;
-  width: 100%;
 }
 
 .subtraction-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
   width: 100%;
+  height: 100%;
+  overflow: auto;
+
   border-radius: .5rem;
   border: 2px solid black;
   margin: .25rem;
