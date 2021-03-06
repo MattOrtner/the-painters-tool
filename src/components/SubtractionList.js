@@ -21,10 +21,10 @@ const SubtractionList = ({ subtractionList, setSubtractionList, subtractFromTota
           ?
           
           subtractionList.map((subtractionCase, index) =>
-            <div className="DOW-single-subtraction">
+            <div key={`${index}c`} className="DOW-single-subtraction">
               <div key={index}>{subtractionCase.name}</div>
               <div key={`${index}a`}>-{subtractionCase.height * subtractionCase.width} Sq.Ft.</div>
-              <div className="delete-subtraction button" onClick={() => deleteSubtraction(index)}>delete</div>
+              <div className="delete-subtraction button" key={`${index}b`} onClick={() => deleteSubtraction(index)}>delete</div>
             </div>
           )
         :
