@@ -11,6 +11,7 @@ const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted
   }
   
   const onInputSubmit = () => {
+    if (subtractionInput.height === undefined || subtractionInput.width === undefined) return alert('Required fields missing')
     setSubtractionList([subtractionInput, ...subtractionList])
     setIsSubtracted(false)
   }
@@ -36,7 +37,7 @@ const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted
           type="number"
           className="subtraction-input"
           name="width" 
-          placeholder="width" 
+          placeholder="width"
         />
         <input type="button" value="+ subtraction" onClick={onInputSubmit}/>
       </div>

@@ -81,11 +81,11 @@ function App() {
         <h1>Enter Dimensions of Room</h1>
         <div className="inputs">
           <input className="input" type="number" placeholder="length" name="length" onChange={handleLHWInputs} />
-          <div>ft.</div>
+          <div className="input">ft.</div>
           <input type="number" className="input" placeholder="width" name="width" onChange={handleLHWInputs} />
-          <div>ft.</div>
+          <div className="input">ft.</div>
           <input type="number" className="input" placeholder="height" name="height" onChange={handleLHWInputs}  />
-          <div>ft.</div>
+          <div className="input">ft.</div>
           <input className="button" type="button" value="CALC SQ. FOOTAGE" onClick={calculate}/>
         </div>
         <div className="add-subtraction">
@@ -104,21 +104,20 @@ function App() {
       </div> 
       <div className="container right">
         <div className="info-container">
-          <div className="info">TOTAL: {totalFootage} sq.ft.</div>
+          <div className="total info">TOTAL: {totalFootage} sq.ft.</div>
           <div className="paint-container">
             <div>
               <div className="info">{gallons / 2} gal primer</div>
               <div className="info">{gallons} gal paint</div>
             </div>
             <div>X</div>
-            <div>$25 per gallon</div>
+            <div>$25 per gallon [average]</div>
           </div>
           <div className="rate-container">
             <div>$</div>
-            <input type="number" placeholder="rate per square foot" name="rate" onChange={handleLHWInputs} />
+            <input type="number" className="input" placeholder="rate per square foot" name="rate" onChange={handleLHWInputs} />
             <input type="button" className="button" value="ADD RATE + COST" onClick={calculateTotal} />
           </div>
-          <div className="small-print">[ ESTIMATED SUPPLIES NEEDED & AVERAGE COST ]</div>
           <div className="small-print">[ 400 square feet per gallon ]</div>
         </div>
         <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
