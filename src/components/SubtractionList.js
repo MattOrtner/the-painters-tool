@@ -11,7 +11,7 @@ const SubtractionList = ({ subtractionList, setSubtractionList, subtractFromTota
   }
 
   const deleteSubtraction = (index) => {
-    const newList = subtractionList.filter((subtraction) => subtraction.index === index)
+    const newList = subtractionList.filter((_, subtractionIndex) => subtractionIndex !== index)
     setSubtractionList(newList)
   }
   return (
