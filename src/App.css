@@ -103,10 +103,12 @@
   cursor: pointer;
   background-color: blueviolet;
 }
+
 .subtractions-container {
   height: 117px;
   overflow: scroll;
 }
+
 .subtraction-list {
   height: 100%;
   width: 100%;
@@ -125,23 +127,35 @@
   align-items: center;
   justify-content: space-evenly;
 }
+
 .total {
   font-size: 1.5rem;
   font-style: italic;
 }
+
 .paint-container.info {
   margin: 5px;
 }
 
 .DWO-selection-container {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(8,1fr) ;
 }
 
 .DOW-single-subtraction {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+}
+.close-button-container {
+  display: grid;
+  grid-template-columns: 5;
+}
+.close-subtraction-button {
+  grid-column: 8;
+  border: 1px solid black;
+  font-size: 1rem;
+  cursor: pointer;
 }
 
 .delete-subtraction {
@@ -152,6 +166,7 @@
 .rate-container {
   display: flex;
 }
+
 
 @media (max-width: 850px) {
   .App {

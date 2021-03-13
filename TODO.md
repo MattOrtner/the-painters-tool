@@ -1,8 +1,15 @@
 # for the future!
 media query layout
-- desktop first
-add delete button to subtraction list 
+
 allow user to change the paint cost
+does the user need the paint cost?
+
+who's going to be using this app.... what are they going to need the information for.
+what is the first thing that anyone really needs....
+
+Now that we have Andrew's version of the app..what is your version of the app....
+You should be building the timer app if it's something that you think would help you very much.
+
 allow an option to just put in the total square footage
 
 user can add an email to the form to send their client and themselves a copy of the quote

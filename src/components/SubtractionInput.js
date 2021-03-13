@@ -13,18 +13,17 @@ const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted
   const onInputSubmit = () => {
     if (subtractionInput.height === undefined || subtractionInput.width === undefined) return alert('Required fields missing')
     setSubtractionList([subtractionInput, ...subtractionList])
-    setIsSubtracted(false)
   }
 
   return (
       <div onChange={onInputChange} >
         <div className="DWO-selection-container">
-          <input type="radio" radio="door" value="door" name="name" />
-          <label htmlFor="door">Door</label>
-        <input type="radio" radio="window" value="window" name="name"/>
-          <label htmlFor="window">Window</label>
-        <input type="radio" radio="other" value="other" name="name"/>
-          <label htmlFor="other">Other</label>
+          <input type="radio" radio="door" value="door" name="name" /> Door
+          <input type="radio" radio="window" value="window" name="name"/> Window
+          <input type="radio" radio="other" value="other" name="name" /> Other
+          <div className="close-button-container">
+            <div className="close-subtraction-button" onClick={() => setIsSubtracted(false)}> X </div>
+          </div>
         </div>
         <input 
           type="number"
