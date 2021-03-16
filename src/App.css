@@ -42,13 +42,6 @@
   font-size: 1rem
 }
 
-
-.toggle {
-  border: none;
-  height: max-content;
-  width: max-content;
-}
-
 .info-container {
   border: 2px solid black;
   display: flex;
@@ -84,17 +77,13 @@
   font-size: 1rem;
   border-radius: .5rem;
   cursor: pointer;
+  background-color: #fea659;
 }
 
-.add-subtraction {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  border: 2px solid;
-  border-radius: 10px;
-  padding-top: .1rem;
-  padding-bottom: .1rem;
+.toggle-subtraction {
+  width:100%;
 }
+
 
 .subtract-button {
   border: none;
@@ -139,7 +128,7 @@
 
 .DWO-selection-container {
   display: grid;
-  grid-template-columns: repeat(8,1fr) ;
+  grid-template-columns: repeat(8, 1fr);
 }
 
 .DOW-single-subtraction {
@@ -147,10 +136,12 @@
   display: flex;
   justify-content: space-between;
 }
+
 .close-button-container {
   display: grid;
   grid-template-columns: 5;
 }
+
 .close-subtraction-button {
   grid-column: 8;
   border: 1px solid black;

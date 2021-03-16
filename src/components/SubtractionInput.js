@@ -38,7 +38,7 @@ const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted
           name="width" 
           placeholder="width"
         />
-        <input type="button" value="+ subtraction" onClick={onInputSubmit}/>
+        <input type="button" className="button" value="+ subtraction" onClick={onInputSubmit}/>
       </div>
   )
 }

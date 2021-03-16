@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import SubtractionInput from './components/SubtractionInput'
 import SubtractionList from './components/SubtractionList'
 import Totals from './components/Totals'
+import SquareFootInput from './components/SquareFootInput'
 
 
 function App() {
@@ -79,29 +80,19 @@ function App() {
     <div className="App">
       <div className="container left">
         <h1>Enter Dimensions of Room</h1>
-        <div className="inputs">
-          <input className="input" type="number" placeholder="length" name="length" onChange={handleLHWInputs} />
-          <div className="input">ft.</div>
-          <input type="number" className="input" placeholder="width" name="width" onChange={handleLHWInputs} />
-          <div className="input">ft.</div>
-          <input type="number" className="input" placeholder="height" name="height" onChange={handleLHWInputs}  />
-          <div className="input">ft.</div>
-          <input className="button" type="button" value="CALC SQ. FOOTAGE" onClick={calculate}/>
-        </div>
-        <div className="add-subtraction">
+        <SquareFootInput calculate={calculate} handleLHWInputs={handleLHWInputs} />
           {isSubtracted ? 
             <>
               <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
             </>
             :
-            <button className="toggle button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+            <button className="toggle-subtraction button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
           }
         </div>
         {subtractionList.length ? 
           <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
         :
           ''}
-      </div> 
       <div className="container right">
         <div className="info-container">
           <div className="total info">TOTAL: {totalFootage} sq.ft.</div>
