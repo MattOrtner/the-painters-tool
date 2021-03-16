@@ -18,7 +18,7 @@ const SquareFootInput = ({ calculate, handleLHWInputs, setTotalFootage }) => {
       </div>
       <div className="break-in-inputs">OR</div>
       <div className="input-pairing">
-        <input type="number"  className="input-total" placeholder="Total" name="total" onChange={handleLHWInputs}/>
+        <input type="number"  className="input" placeholder="Total" name="total" onChange={handleLHWInputs}/>
         <div className="feet">ft.</div>
       </div>
       <input className="button" type="button" value="CALC SQ. FOOTAGE" onClick={calculate} />
