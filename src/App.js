@@ -28,12 +28,17 @@ function App() {
   }
 
   const handleLHWInputs = (e) => {
+    console.log(hwInputs)
     const name = e.target.name
     const value = e.target.value
     setHwInputs({...hwInputs, [name]: value})
   }
 
   const findSquareFeet = () => {
+    const total = hwInputs.total
+    if (total) {
+      return setTotalFootage(total)
+    }
     const widthHeight = hwInputs.width * hwInputs.height
     const lengthHeight = hwInputs.length * hwInputs.height
       setTotalFootage(parseInt(widthHeight + lengthHeight) * 2)
@@ -80,7 +85,7 @@ function App() {
     <div className="App">
       <div className="container left">
         <h1>Enter Dimensions of Room</h1>
-        <SquareFootInput calculate={calculate} handleLHWInputs={handleLHWInputs} />
+        <SquareFootInput calculate={calculate} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
           {isSubtracted ? 
             <>
               <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
@@ -88,11 +93,11 @@ function App() {
             :
             <button className="toggle-subtraction button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
           }
-        </div>
-        {subtractionList.length ? 
-          <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
-        :
-          ''}
+      </div>
+      {subtractionList.length ? 
+        <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
+      :
+        ''}
       <div className="container right">
         <div className="info-container">
           <div className="total info">TOTAL: {totalFootage} sq.ft.</div>
