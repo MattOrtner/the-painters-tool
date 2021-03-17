@@ -13,6 +13,7 @@ function App() {
   const [isSubtracted, setIsSubtracted] = useState(false)
 
   const [rate, setRate] = useState(0)
+  const [costPerGallon, setCostPerGallon] = useState('')
   const [paintCost, setPaintCost] = useState(0)
   const [gallons, setGallons] = useState(0)
   const [totalCost, setTotalCost] = useState(0)
@@ -21,6 +22,11 @@ function App() {
     findTotalCost()
   })
 
+  const handlePaintInput = (e) => {
+    const newCost = e.target.value
+    setCostPerGallon(newCost)
+  }
+
   const subtractFromTotal = (subtractionAmount) => {
     const newSquareFootage = totalFootage - subtractionAmount
 
@@ -28,7 +34,6 @@ function App() {
   }
 
   const handleLHWInputs = (e) => {
-    console.log(hwInputs)
     const name = e.target.name
     const value = e.target.value
     setHwInputs({...hwInputs, [name]: value})
@@ -62,8 +67,8 @@ function App() {
   }
 
   const findGallonsCost = () => {
-    const totalPaint = (gallons * 25)
-    const totalPrimer = ((gallons / 2) * 25) 
+    const totalPaint = (gallons * costPerGallon)
+    const totalPrimer = ((gallons / 2) * costPerGallon) 
     setPaintCost(totalPaint + totalPrimer)
   }
 
@@ -101,18 +106,17 @@ function App() {
       <div className="container right">
         <div className="info-container">
           <div className="total info">TOTAL: {totalFootage} sq.ft.</div>
+          <div className="info">{gallons / 2} gal primer</div>
+          <div className="info">{gallons} gal paint</div>
           <div className="paint-container">
-            <div>
-              <div className="info">{gallons / 2} gal primer</div>
-              <div className="info">{gallons} gal paint</div>
-            </div>
-            <div>X</div>
-            <div>$25 per gallon [average]</div>
+            <div>$</div>
+            <input type="number" className="paint-cost" name="costPerGallon" placeholder="cost of paint" onChange={handlePaintInput}/>
+            <div className="paint-cost-after">per gallon [average]</div>
           </div>
           <div className="rate-container">
             <div>$</div>
             <input type="number" className="input" placeholder="rate per square foot" name="rate" onChange={handleLHWInputs} />
-            <input type="button" className="button" value="ADD RATE + COST" onClick={calculateTotal} />
+            <input type="button" className="add-cost button" value="ADD RATE + COST" onClick={calculateTotal} />
           </div>
           <div className="small-print">[ 400 square feet per gallon ]</div>
         </div>
