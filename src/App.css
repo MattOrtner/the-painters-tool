@@ -41,6 +41,7 @@
   width: 100%;
   margin-right: 50px;
 }
+
 .input-pairing {
   display: flex;
   flex-direction: row;
@@ -137,7 +138,17 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
+}
+
+.paint-cost {
+  height: 1.5rem;
+  font-size: 1rem;
+}
+
+.paint-cost-after {
+  margin-left: .5rem;
+  font-size: 1rem;
 }
 
 .total {
@@ -161,7 +172,7 @@
 }
 
 .radio {
-  width:fit-content;
+  width: fit-content;
 }
 
 .subtraction-input-bottom {
