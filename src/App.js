@@ -4,6 +4,7 @@ import SubtractionInput from './components/SubtractionInput'
 import SubtractionList from './components/SubtractionList'
 import Totals from './components/Totals'
 import SquareFootInput from './components/SquareFootInput'
+import InfoContainer from './components/InfoContainer';
 
 
 function App() {
@@ -104,22 +105,13 @@ function App() {
       :
         ''}
       <div className="container right">
-        <div className="info-container">
-          <div className="total info">TOTAL: {totalFootage} sq.ft.</div>
-          <div className="info">{gallons / 2} gal primer</div>
-          <div className="info">{gallons} gal paint</div>
-          <div className="paint-container">
-            <div>$</div>
-            <input type="number" className="paint-cost" name="costPerGallon" placeholder="cost of paint" onChange={handlePaintInput}/>
-            <div className="paint-cost-after">per gallon [average]</div>
-          </div>
-          <div className="rate-container">
-            <div>$</div>
-            <input type="number" className="input" placeholder="rate per square foot" name="rate" onChange={handleLHWInputs} />
-            <input type="button" className="add-cost button" value="ADD RATE + COST" onClick={calculateTotal} />
-          </div>
-          <div className="small-print">[ 400 square feet per gallon ]</div>
-        </div>
+        <InfoContainer
+          totalFootage={totalFootage}
+          gallons={gallons}
+          handlePaintInput={handlePaintInput}
+          handleLHWInputs={handleLHWInputs}
+          calculateTotal={calculateTotal}
+        />
         <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
       </div>
     </div>
