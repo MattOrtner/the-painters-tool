@@ -100,17 +100,16 @@ function App() {
       <div className="menu-button" onClick={() => showMenu()}>
         <div className="menu-burger" ></div>
       </div>
+
       {isMenuShown ? 
-        
         <div className="menu">
+          <div className="theme-title">Choose a theme</div>
           <div className="theme-container">
-            <div className="theme one">theme</div>
-            <div className="theme two">theme</div>
-            <div className="theme three">theme</div>
+            <div className="theme one"></div>
+            <div className="theme two"></div>
+            <div className="theme three"></div>
           </div>
         </div>
-
-
         :
         <div className="bottom-container">
           <div className="container left">
@@ -124,6 +123,7 @@ function App() {
                 <button className="toggle-subtraction button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
               }
           </div>
+
           {subtractionList.length ? 
             <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
           :
