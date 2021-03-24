@@ -1,5 +1,11 @@
 # for the future!
 
+## menu
+fix spacing
+connect themes with themes
+  changing the classNames of elements 
+    only chaning the background color and border colors of things
+
 ## bugs
 adding total sqft from the beginning doesn't change the paint amount
 therefore doesn't get added to cost at the end

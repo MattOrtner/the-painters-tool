@@ -12,12 +12,12 @@ function App() {
   const [totalFootage, setTotalFootage] = useState(0)
   const [subtractionList, setSubtractionList] = useState([])
   const [isSubtracted, setIsSubtracted] = useState(false)
-
   const [rate, setRate] = useState(0)
   const [costPerGallon, setCostPerGallon] = useState('')
   const [paintCost, setPaintCost] = useState(0)
   const [gallons, setGallons] = useState(0)
   const [totalCost, setTotalCost] = useState(0)
+  const [isMenuShown, setIsMenuShown] = useState(false)
 
   useEffect(() => {
     findTotalCost()
@@ -87,33 +87,59 @@ function App() {
     findRate()
   }
 
+  const showMenu = () => {
+    if (isMenuShown === true) {
+      setIsMenuShown(false)
+    } else {
+      setIsMenuShown(true)
+    }
+  }
+
   return (
     <div className="App">
-      <div className="container left">
-        <h1>Enter Dimensions of Room</h1>
-        <SquareFootInput calculate={calculate} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
-          {isSubtracted ? 
-            <>
-              <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
-            </>
-            :
-            <button className="toggle-subtraction button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
-          }
+      <div className="menu-button" onClick={() => showMenu()}>
+        <div className="menu-burger" ></div>
       </div>
-      {subtractionList.length ? 
-        <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
-      :
-        ''}
-      <div className="container right">
-        <InfoContainer
-          totalFootage={totalFootage}
-          gallons={gallons}
-          handlePaintInput={handlePaintInput}
-          handleLHWInputs={handleLHWInputs}
-          calculateTotal={calculateTotal}
-        />
-        <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
-      </div>
+      {isMenuShown ? 
+        
+        <div className="menu">
+          <div className="theme-container">
+            <div className="theme one">theme</div>
+            <div className="theme two">theme</div>
+            <div className="theme three">theme</div>
+          </div>
+        </div>
+
+
+        :
+        <div className="bottom-container">
+          <div className="container left">
+            <h1>Enter Dimensions of Room</h1>
+            <SquareFootInput calculate={calculate} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
+              {isSubtracted ? 
+                <>
+                  <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
+                </>
+                :
+                <button className="toggle-subtraction button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+              }
+          </div>
+          {subtractionList.length ? 
+            <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
+          :
+            ''}
+          <div className="container right">
+            <InfoContainer
+              totalFootage={totalFootage}
+              gallons={gallons}
+              handlePaintInput={handlePaintInput}
+              handleLHWInputs={handleLHWInputs}
+              calculateTotal={calculateTotal}
+            />
+            <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
+          </div>
+        </div>
+      }
     </div>
   );
 }
