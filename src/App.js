@@ -4,6 +4,7 @@ import SubtractionInput from './components/SubtractionInput'
 import SubtractionList from './components/SubtractionList'
 import Totals from './components/Totals'
 import SquareFootInput from './components/SquareFootInput'
+import InfoContainer from './components/InfoContainer';
 
 
 function App() {
@@ -11,12 +12,12 @@ function App() {
   const [totalFootage, setTotalFootage] = useState(0)
   const [subtractionList, setSubtractionList] = useState([])
   const [isSubtracted, setIsSubtracted] = useState(false)
-
   const [rate, setRate] = useState(0)
   const [costPerGallon, setCostPerGallon] = useState('')
   const [paintCost, setPaintCost] = useState(0)
   const [gallons, setGallons] = useState(0)
   const [totalCost, setTotalCost] = useState(0)
+  const [isMenuShown, setIsMenuShown] = useState(false)
 
   useEffect(() => {
     findTotalCost()
@@ -86,42 +87,59 @@ function App() {
     findRate()
   }
 
+  const showMenu = () => {
+    if (isMenuShown === true) {
+      setIsMenuShown(false)
+    } else {
+      setIsMenuShown(true)
+    }
+  }
+
   return (
     <div className="App">
-      <div className="container left">
-        <h1>Enter Dimensions of Room</h1>
-        <SquareFootInput calculate={calculate} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
-          {isSubtracted ? 
-            <>
-              <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
-            </>
-            :
-            <button className="toggle-subtraction button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
-          }
+      <div className="menu-button" onClick={() => showMenu()}>
+        <div className="menu-burger" ></div>
       </div>
-      {subtractionList.length ? 
-        <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
-      :
-        ''}
-      <div className="container right">
-        <div className="info-container">
-          <div className="total info">TOTAL: {totalFootage} sq.ft.</div>
-          <div className="info">{gallons / 2} gal primer</div>
-          <div className="info">{gallons} gal paint</div>
-          <div className="paint-container">
-            <div>$</div>
-            <input type="number" className="paint-cost" name="costPerGallon" placeholder="cost of paint" onChange={handlePaintInput}/>
-            <div className="paint-cost-after">per gallon [average]</div>
+
+      {isMenuShown ? 
+        <div className="menu">
+          <div className="theme-title">Choose a theme</div>
+          <div className="theme-container">
+            <div className="theme one"></div>
+            <div className="theme two"></div>
+            <div className="theme three"></div>
           </div>
-          <div className="rate-container">
-            <div>$</div>
-            <input type="number" className="input" placeholder="rate per square foot" name="rate" onChange={handleLHWInputs} />
-            <input type="button" className="add-cost button" value="ADD RATE + COST" onClick={calculateTotal} />
-          </div>
-          <div className="small-print">[ 400 square feet per gallon ]</div>
         </div>
-        <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
-      </div>
+        :
+        <div className="bottom-container">
+          <div className="container left">
+            <h1>Enter Dimensions of Room</h1>
+            <SquareFootInput calculate={calculate} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
+              {isSubtracted ? 
+                <>
+                  <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
+                </>
+                :
+                <button className="toggle-subtraction button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+              }
+          </div>
+
+          {subtractionList.length ? 
+            <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
+          :
+            ''}
+          <div className="container right">
+            <InfoContainer
+              totalFootage={totalFootage}
+              gallons={gallons}
+              handlePaintInput={handlePaintInput}
+              handleLHWInputs={handleLHWInputs}
+              calculateTotal={calculateTotal}
+            />
+            <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
+          </div>
+        </div>
+      }
     </div>
   );
 }
