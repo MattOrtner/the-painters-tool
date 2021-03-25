@@ -18,6 +18,7 @@ function App() {
   const [gallons, setGallons] = useState(0)
   const [totalCost, setTotalCost] = useState(0)
   const [isMenuShown, setIsMenuShown] = useState(false)
+  const [themeColor, setThemeColor] = useState('one')
 
   useEffect(() => {
     findTotalCost()
@@ -94,7 +95,17 @@ function App() {
       setIsMenuShown(true)
     }
   }
+  const changeTheme = (e) => {
+    const newTheme = e.target.attributes.color.nodeValue
+    setThemeColor(newTheme)
+    console.log(e, 'e')
+    console.log(e.target, 'e.target')
+    console.log(e.target.attributes.color.nodeValue, 'attributes.color.nodeValue')
+    // console.log(e.target.color, 'e.target.color')
 
+
+    //this is going to change the color
+  }
   return (
     <div className="App">
       <div className="menu-button" onClick={() => showMenu()}>
@@ -105,22 +116,22 @@ function App() {
         <div className="menu">
           <div className="theme-title">Choose a theme</div>
           <div className="theme-container">
-            <div className="theme one"></div>
-            <div className="theme two"></div>
-            <div className="theme three"></div>
+            <div className="theme one" color="one" onClick={(e) => changeTheme(e)}></div>
+            <div className="theme two" color="two"  onClick={(e) => changeTheme(e)}></div>
+            <div className="theme three" color="three" onClick={(e) => changeTheme(e)}></div>
           </div>
         </div>
         :
         <div className="bottom-container">
           <div className="container left">
             <h1>Enter Dimensions of Room</h1>
-            <SquareFootInput calculate={calculate} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
+            <SquareFootInput calculate={calculate} themeColor={themeColor} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
               {isSubtracted ? 
                 <>
                   <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
                 </>
                 :
-                <button className="toggle-subtraction button" onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+                <button className={`toggle-subtraction button ${themeColor}`} onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
               }
           </div>
 
@@ -130,6 +141,7 @@ function App() {
             ''}
           <div className="container right">
             <InfoContainer
+              themeColor={themeColor}
               totalFootage={totalFootage}
               gallons={gallons}
               handlePaintInput={handlePaintInput}
