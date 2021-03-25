@@ -12,18 +12,20 @@
 .menu {
   width: 100%;
   height: 80%;
-  background-color:rgb(197, 197, 197);
+  background-color: rgb(197, 197, 197);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
 .theme-title {
   font-weight: 500;
   font-size: 50px;
   font-style: italic;
   margin-bottom: 50px;
 }
+
 .theme-container {
   width: 75%;
   height: 50%;
@@ -44,15 +46,7 @@
   border-radius: 15px;
   cursor: pointer;
 }
-.one {
-  background-color: cadetblue;
-}
-.two {
-  background-color: crimson;
-}
-.three {
-  background-color: darkolivegreen;
-}
+
 .bottom-container {
   display: flex;
   margin: .25rem;
@@ -307,6 +301,17 @@
   display: flex;
 }
 
+.one {
+  background-color: cadetblue;
+}
+
+.two {
+  background-color: crimson;
+}
+
+.three {
+  background-color: darkolivegreen;
+}
 
 @media (max-width: 850px) {
   .bottom-container {
