@@ -98,14 +98,8 @@ function App() {
   const changeTheme = (e) => {
     const newTheme = e.target.attributes.color.nodeValue
     setThemeColor(newTheme)
-    console.log(e, 'e')
-    console.log(e.target, 'e.target')
-    console.log(e.target.attributes.color.nodeValue, 'attributes.color.nodeValue')
-    // console.log(e.target.color, 'e.target.color')
-
-
-    //this is going to change the color
   }
+  
   return (
     <div className="App">
       <div className="menu-button" onClick={() => showMenu()}>
