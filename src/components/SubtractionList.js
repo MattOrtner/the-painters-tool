@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-const SubtractionList = ({ subtractionList, setSubtractionList, subtractFromTotal }) => {
+const SubtractionList = ({ themeColor, subtractionList, setSubtractionList, subtractFromTotal }) => {
 
   const subFromTotal = () => {
     if(subtractionList.length === 0) return alert("Must fill-in subtractions to apply subtractions")
@@ -24,14 +24,14 @@ const SubtractionList = ({ subtractionList, setSubtractionList, subtractFromTota
             <div key={`${index}c`} className="DOW-single-subtraction">
               <div key={index}>{subtractionCase.name}</div>
               <div key={`${index}a`}>-{subtractionCase.height * subtractionCase.width} Sq.Ft.</div>
-              <div className="delete-subtraction button" key={`${index}b`} onClick={() => deleteSubtraction(index)}>delete</div>
+              <div className={`delete-subtraction button ${themeColor}`} key={`${index}b`} onClick={() => deleteSubtraction(index)}>delete</div>
             </div>
           )
         :
           ''
         }
       </div>
-      <button className="button " onClick={subFromTotal}>APPLY SUBTRACTIONS</button>
+      <button className={`button ${themeColor}`}onClick={subFromTotal}>APPLY SUBTRACTIONS</button>
     </div>
   )
 }

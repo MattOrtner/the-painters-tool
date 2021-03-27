@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted}) => {
+const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, setIsSubtracted}) => {
   const [subtractionInput, setSubtractionInput] = useState({})
 
   const onInputChange = (e) => {
@@ -22,7 +22,7 @@ const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted
           <input type="radio" className="radio" radio="window" value="window" name="name"/> Window
           <input type="radio" className="radio" radio="other" value="other" name="name" /> Other
           <div className="close-button-container">
-            <div className="close-subtraction-button" onClick={() => setIsSubtracted(false)}> X </div>
+            <div className={`close-subtraction-button button ${themeColor}`} onClick={() => setIsSubtracted(false)}> X </div>
           </div>
         </div>
         <div className="subtraction-input-bottom">
@@ -39,7 +39,7 @@ const SubtractionInput = ({ subtractionList, setSubtractionList, setIsSubtracted
             name="width" 
             placeholder="width"
           />
-          <input type="button" className="button" value="+ subtraction" onClick={onInputSubmit}/>
+          <input type="button" className={`button ${themeColor}`} value="+ subtraction" onClick={onInputSubmit}/>
         </div>
       </div>
   )

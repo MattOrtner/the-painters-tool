@@ -106,6 +106,8 @@ function App() {
         <div className="menu-burger" ></div>
       </div>
 
+      <h1>Enter the Dimensions of Room</h1>
+
       {isMenuShown ? 
         <div className="menu">
           <div className="theme-title">Choose a theme</div>
@@ -116,23 +118,23 @@ function App() {
           </div>
         </div>
         :
+
         <div className="bottom-container">
           <div className="container left">
-            <h1>Enter Dimensions of Room</h1>
             <SquareFootInput calculate={calculate} themeColor={themeColor} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
               {isSubtracted ? 
                 <>
-                  <SubtractionInput subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
+                <SubtractionInput themeColor={themeColor} subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
                 </>
                 :
                 <button className={`toggle-subtraction button ${themeColor}`} onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
               }
+            {subtractionList.length ? 
+              <SubtractionList themeColor={themeColor} subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} />
+            :
+              ''}
           </div>
 
-          {subtractionList.length ? 
-            <SubtractionList subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} /> 
-          :
-            ''}
           <div className="container right">
             <InfoContainer
               themeColor={themeColor}
