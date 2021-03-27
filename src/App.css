@@ -19,45 +19,6 @@
   align-items: center;
 }
 
-.theme-title {
-  font-weight: 500;
-  font-size: 50px;
-  font-style: italic;
-  margin-bottom: 50px;
-}
-
-.theme-container {
-  width: 75%;
-  height: 50%;
-  background-color: rgb(245, 245, 245);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  border: 2px ridge grey;
-  border-radius: 15px;
-  transition: all .5s ease-in-out;
-}
-
-.theme {
-  border: 2px double black;
-  width: 25%;
-  height: 10%;
-  border-radius: 15px;
-  cursor: pointer;
-}
-
-.bottom-container {
-  display: flex;
-  margin: .25rem;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  height: 75%;
-  width: 75%;
-  box-sizing: border-box;
-}
-
 .menu-button {
   display: flex;
   justify-content: center;
@@ -97,22 +58,62 @@
   transform: translateY(16px);
 }
 
+.bottom-container {
+  display: flex;
+  margin: .25rem;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.theme-title {
+  font-weight: 500;
+  font-size: 50px;
+  font-style: italic;
+  margin-bottom: 50px;
+}
+
+.theme-container {
+  width: 75%;
+  height: 50%;
+  background-color: rgb(245, 245, 245);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px ridge grey;
+  border-radius: 15px;
+  transition: all .5s ease-in-out;
+}
+
+.theme {
+  border: 2px double black;
+  width: 25%;
+  height: 10%;
+  border-radius: 15px;
+  cursor: pointer;
+}
 
 .App>.container {
   display: flex;
-  height: 500px;
+  height: 80%;
   width: 500px;
 }
 
 .App .container.left {
   flex-direction: column;
   align-items: center;
+  /* height: 80%; */
 }
 
 .App .container.right {
   flex-direction: column;
-
+  height: 80%;
 }
+
 
 .inputs {
   border: 2px solid black;
@@ -156,6 +157,7 @@
 }
 
 .info-container {
+  height: 50%;
   border: 2px solid black;
   display: flex;
   flex-direction: column;
@@ -167,6 +169,7 @@
 
 .totals {
   flex-grow: 1.25;
+  height: 50%;
   border: 2px solid black;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -191,6 +194,7 @@
   border-radius: .5rem;
   cursor: pointer;
   background-color: #E2E8CE;
+  color: white;
 }
 
 .toggle-subtraction {
@@ -203,7 +207,6 @@
   height: 100%;
   width: 100%;
   cursor: pointer;
-  background-color: blueviolet;
 }
 
 .subtractions-container {
@@ -286,10 +289,7 @@
   border: 1px solid black;
   text-align: center;
   width: 20px;
-  border-radius: .5rem;
   margin-right: .25rem;
-  font-size: 1rem;
-  cursor: pointer;
 }
 
 .delete-subtraction {
@@ -319,5 +319,8 @@
     grid-template-columns: 1;
     grid-template-rows: repeat(2, 1fr);
     gap: .25rem;
+  }
+  .container.right {
+    height: 100%;
   }
 }
