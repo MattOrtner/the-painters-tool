@@ -18,7 +18,7 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
   return (
       <div className="subtraction-input-container" onChange={onInputChange} >
         <div className="subtraction-input-top">
-          <input type="radio" className="radio" radio="door" value="door" name="name" />Door
+          <input type="radio" className="radio" radio="door" value="door" name="name"/> Door
           <input type="radio" className="radio" radio="window" value="window" name="name"/> Window
           <input type="radio" className="radio" radio="other" value="other" name="name" /> Other
           <div className="close-button-container">

@@ -5,6 +5,7 @@ import SubtractionList from './components/SubtractionList'
 import Totals from './components/Totals'
 import SquareFootInput from './components/SquareFootInput'
 import InfoContainer from './components/InfoContainer';
+import Menu from './components/Menu'
 
 
 function App() {
@@ -38,17 +39,19 @@ function App() {
   const handleLHWInputs = (e) => {
     const name = e.target.name
     const value = e.target.value
+    console.log(typeof(value));
     setHwInputs({...hwInputs, [name]: value})
   }
 
   const findSquareFeet = () => {
     const total = hwInputs.total
     if (total) {
-      return setTotalFootage(total)
-    }
-    const widthHeight = hwInputs.width * hwInputs.height
-    const lengthHeight = hwInputs.length * hwInputs.height
+      setTotalFootage(parseInt(total))
+    } else {
+      const widthHeight = hwInputs.width * hwInputs.height
+      const lengthHeight = hwInputs.length * hwInputs.height
       setTotalFootage(parseInt(widthHeight + lengthHeight) * 2)
+    }
   }
 
   const findRate = () => {
@@ -58,8 +61,9 @@ function App() {
   }
 
   const findNumOfGallons = () => {
-    const { height, width, length } = hwInputs
-    let totalArea = ((parseInt(width) + parseInt(length)) * 2) * parseInt(height) 
+    const { height, width, length, total} = hwInputs
+    const HWLSquareFootage = ((parseInt(width) + parseInt(length)) * 2) * parseInt(height)
+    let totalArea = HWLSquareFootage || parseInt(total)
     let calcGallons = 0
     while (totalArea > 0) {
       totalArea -= 400
@@ -103,34 +107,43 @@ function App() {
   return (
     <div className="App">
       <div className="menu-button" onClick={() => showMenu()}>
-        <div className="menu-burger" ></div>
+        <div className="menu-burger"></div>
       </div>
 
-      <h1>Enter the Dimensions of Room</h1>
+      <h1 className="title" >Enter the Dimensions of Room</h1>
 
-      {isMenuShown ? 
-        <div className="menu">
-          <div className="theme-title">Choose a theme</div>
-          <div className="theme-container">
-            <div className="theme one" color="one" onClick={(e) => changeTheme(e)}></div>
-            <div className="theme two" color="two"  onClick={(e) => changeTheme(e)}></div>
-            <div className="theme three" color="three" onClick={(e) => changeTheme(e)}></div>
-          </div>
-        </div>
+      {isMenuShown ?
+        <Menu changeTheme={changeTheme} />
         :
 
         <div className="bottom-container">
           <div className="container left">
-            <SquareFootInput calculate={calculate} themeColor={themeColor} handleLHWInputs={handleLHWInputs} setTotalFootage={setTotalFootage}/>
+            <SquareFootInput
+              calculate={calculate}
+              themeColor={themeColor}
+              handleLHWInputs={handleLHWInputs}
+              setTotalFootage={setTotalFootage}
+            />
               {isSubtracted ? 
                 <>
-                <SubtractionInput themeColor={themeColor} subtractionList={subtractionList} setIsSubtracted={setIsSubtracted} setSubtractionList={setSubtractionList} />
+                <SubtractionInput
+                  themeColor={themeColor}
+                  subtractionList={subtractionList}
+                  setIsSubtracted={setIsSubtracted}
+                  setSubtractionList={setSubtractionList}
+                />
                 </>
                 :
-                <button className={`toggle-subtraction button ${themeColor}`} onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+              <button
+                className={`toggle-subtraction button ${themeColor}`}
+                onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
               }
             {subtractionList.length ? 
-              <SubtractionList themeColor={themeColor} subtractFromTotal={subtractFromTotal} subtractionList={subtractionList} setSubtractionList={setSubtractionList} />
+              <SubtractionList
+                themeColor={themeColor}
+                subtractFromTotal={subtractFromTotal} subtractionList={subtractionList}
+                setSubtractionList={setSubtractionList}
+              />
             :
               ''}
           </div>
