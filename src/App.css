@@ -213,7 +213,6 @@ label {
   width: 100%;
 }
 
-
 .subtract-button {
   border: none;
   height: 100%;
@@ -273,8 +272,13 @@ label {
 }
 
 .subtraction-input-top {
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  display: flex;
+  justify-content: space-evenly;
+}
+.subtraction-choice {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .radio {

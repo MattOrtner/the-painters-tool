@@ -18,9 +18,18 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
   return (
       <div className="subtraction-input-container" onChange={onInputChange} >
         <div className="subtraction-input-top">
-          <input type="radio" className="radio" radio="door" value="door" name="name"/> Door
-          <input type="radio" className="radio" radio="window" value="window" name="name"/> Window
-          <input type="radio" className="radio" radio="other" value="other" name="name" /> Other
+          <div className="subtraction-choice">
+            <div>
+              <input type="radio" className="radio" radio="door" value="door" name="name" id="door" />
+              <label for="door">Door</label>
+            </div>
+            <div>
+              <input type="radio" className="radio" radio="window" value="window" name="name"/> Window
+            </div>
+            <div>
+              <input type="radio" className="radio" radio="other" value="other" name="name" /> Other
+            </div>
+          </div>
           <div className="close-button-container">
             <div className={`close-subtraction-button button ${themeColor}`} onClick={() => setIsSubtracted(false)}> X </div>
           </div>
