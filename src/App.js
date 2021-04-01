@@ -115,55 +115,51 @@ function App() {
 
       <h1 className={`title ${open}`} >Enter the Dimensions of Room</h1>
 
-      {isMenuShown ?
-        <Menu changeTheme={changeTheme} open={open} />
-        :
-
-        <div className="bottom-container">
-          <div className="container left">
-            <SquareFootInput
-              calculate={calculate}
+      <Menu changeTheme={changeTheme} open={open} />
+      <div className="bottom-container">
+        <div className="container left">
+          <SquareFootInput
+            calculate={calculate}
+            themeColor={themeColor}
+            handleLHWInputs={handleLHWInputs}
+            setTotalFootage={setTotalFootage}
+          />
+          {isSubtracted ? 
+            <>
+            <SubtractionInput
               themeColor={themeColor}
-              handleLHWInputs={handleLHWInputs}
-              setTotalFootage={setTotalFootage}
+              subtractionList={subtractionList}
+              setIsSubtracted={setIsSubtracted}
+              setSubtractionList={setSubtractionList}
             />
-              {isSubtracted ? 
-                <>
-                <SubtractionInput
-                  themeColor={themeColor}
-                  subtractionList={subtractionList}
-                  setIsSubtracted={setIsSubtracted}
-                  setSubtractionList={setSubtractionList}
-                />
-                </>
-                :
-              <button
-                className={`toggle-subtraction button ${themeColor}`}
-                onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
-              }
-            {subtractionList.length ? 
-              <SubtractionList
-                themeColor={themeColor}
-                subtractFromTotal={subtractFromTotal} subtractionList={subtractionList}
-                setSubtractionList={setSubtractionList}
-              />
+            </>
             :
-              ''}
-          </div>
-
-          <div className="container right">
-            <InfoContainer
+            <button
+              className={`toggle-subtraction button ${themeColor}`}
+              onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
+            }
+          {subtractionList.length ? 
+            <SubtractionList
               themeColor={themeColor}
-              totalFootage={totalFootage}
-              gallons={gallons}
-              handlePaintInput={handlePaintInput}
-              handleLHWInputs={handleLHWInputs}
-              calculateTotal={calculateTotal}
+              subtractFromTotal={subtractFromTotal} subtractionList={subtractionList}
+              setSubtractionList={setSubtractionList}
             />
-            <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
-          </div>
+          :
+            ''}
         </div>
-      }
+
+        <div className="container right">
+          <InfoContainer
+            themeColor={themeColor}
+            totalFootage={totalFootage}
+            gallons={gallons}
+            handlePaintInput={handlePaintInput}
+            handleLHWInputs={handleLHWInputs}
+            calculateTotal={calculateTotal}
+          />
+          <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
+        </div>
+      </div>
     </div>
   );
 }
