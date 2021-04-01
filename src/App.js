@@ -19,6 +19,7 @@ function App() {
   const [gallons, setGallons] = useState(0)
   const [totalCost, setTotalCost] = useState(0)
   const [isMenuShown, setIsMenuShown] = useState(false)
+  const [open, setOpen] = useState('')
   const [themeColor, setThemeColor] = useState('one')
 
   useEffect(() => {
@@ -95,7 +96,9 @@ function App() {
   const showMenu = () => {
     if (isMenuShown === true) {
       setIsMenuShown(false)
+      setOpen('')
     } else {
+      setOpen('open')
       setIsMenuShown(true)
     }
   }
@@ -106,7 +109,7 @@ function App() {
   
   return (
     <div className="App">
-      <div className="menu-button" onClick={() => showMenu()}>
+      <div className={`menu-button ${open} `}onClick={() => showMenu()}>
         <div className="menu-burger"></div>
       </div>
 

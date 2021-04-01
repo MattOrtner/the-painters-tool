@@ -73,6 +73,17 @@ label {
   transform: translateY(16px);
 }
 
+.menu-button.open .menu-burger {
+  transform: translateX(-50px);
+  background: transparent;
+}
+.menu-button.open .menu-burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-button.open .menu-burger::after{
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
 .bottom-container {
   display: flex;
   margin: .25rem;

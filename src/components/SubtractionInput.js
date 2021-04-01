@@ -21,7 +21,7 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
           <div className="subtraction-choice">
             <div>
               <input type="radio" className="radio" radio="door" value="door" name="name" id="door" />
-              <label for="door">Door</label>
+              <label htmlFor="door">Door</label>
             </div>
             <div>
               <input type="radio" className="radio" radio="window" value="window" name="name"/> Window

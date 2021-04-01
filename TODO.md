@@ -1,4 +1,5 @@
--subtraction input doesn't clear after submit
+# onClick of change theme this needs to be some sort of indication
+-subtraction inputs don't clear after submit
 -
 # Totals
 adding some color and font work to jazz it up
