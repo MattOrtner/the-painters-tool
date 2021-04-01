@@ -22,14 +22,19 @@ label {
 }
 
 .menu {
-  width: 100%;
+  top: 100px;
+  width: 20%;
   height: 80%;
   background-color: rgb(197, 197, 197);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all .5s ease-in-out;
+  transition: all .5s;
+}
+
+.menu.open {
+  width: 100%;
 }
 
 .title.open {
@@ -81,10 +86,12 @@ label {
   transform: translateX(-50px);
   background: transparent;
 }
+
 .menu-button.open .menu-burger::before {
   transform: rotate(45deg) translate(35px, -35px);
 }
-.menu-button.open .menu-burger::after{
+
+.menu-button.open .menu-burger::after {
   transform: rotate(-45deg) translate(35px, 35px);
 }
 
@@ -125,6 +132,12 @@ label {
   height: 10%;
   border-radius: 15px;
   cursor: pointer;
+  transition: all .2s ease-in-out;
+}
+
+.theme:hover {
+  transform: translateY(-2px);
+  box-shadow: 10px 5px 5px;
 }
 
 .App .container.left {
@@ -290,6 +303,7 @@ label {
   display: flex;
   justify-content: space-evenly;
 }
+
 .subtraction-choice {
   width: 100%;
   display: flex;
