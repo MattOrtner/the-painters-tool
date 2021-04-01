@@ -29,6 +29,11 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: all .5s ease-in-out;
+}
+
+.title.open {
+  display: none;
 }
 
 .menu-button {
@@ -40,10 +45,9 @@ label {
   cursor: pointer;
   transition: all .5s ease-in-out;
   top: 30px;
+  left: 30px;
   border-radius: .75rem;
-  /* position: -webkit-sticky; */
   position: sticky;
-  top: 20px;
 }
 
 .menu-burger {

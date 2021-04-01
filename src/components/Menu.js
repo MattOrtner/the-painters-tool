@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Menu = ({changeTheme}) => {
+const Menu = ({changeTheme, open}) => {
   return (
-    <div className="menu">
+    <div className={`menu ${open}`}>
       <div className="theme-title">Choose a theme</div>
       <div className="theme-container">
         <div className="theme one" color="one" onClick={(e) => changeTheme(e)}></div>

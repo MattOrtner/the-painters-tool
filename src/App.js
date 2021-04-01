@@ -109,14 +109,14 @@ function App() {
   
   return (
     <div className="App">
-      <div className={`menu-button ${open} `}onClick={() => showMenu()}>
+      <div className={`menu-button ${open}`} onClick={() => showMenu()}>
         <div className="menu-burger"></div>
       </div>
 
-      <h1 className="title" >Enter the Dimensions of Room</h1>
+      <h1 className={`title ${open}`} >Enter the Dimensions of Room</h1>
 
       {isMenuShown ?
-        <Menu changeTheme={changeTheme} />
+        <Menu changeTheme={changeTheme} open={open} />
         :
 
         <div className="bottom-container">
