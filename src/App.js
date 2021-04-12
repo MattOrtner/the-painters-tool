@@ -113,7 +113,7 @@ function App() {
         <div className="menu-burger"></div>
       </div>
 
-      <h1 className={`title ${open}`} >Enter the Dimensions of Room</h1>
+      <h1 className="title" >Enter the Dimensions of the Room</h1>
 
       <Menu changeTheme={changeTheme} open={open} />
       <div className="bottom-container">

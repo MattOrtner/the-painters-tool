@@ -23,18 +23,18 @@ label {
 
 .menu {
   position: absolute;
-  left: -75vw;
-  width: 75vw;
+  left: -90vw;
+  width: 90vw;
   height: 100%;
   top: 100px;
-  background-color: whitesmoke;
-  border:1px solid black;
+  background-color: white;
+  border: 1px solid black;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: all .7s ease-in-out;
+  transition: all .4s ease-in-out;
 }
 
 .menu.open {
@@ -116,17 +116,17 @@ label {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
   margin-bottom: 50px;
+  /* background: white; */
 }
 
 .theme-container {
   width: 100%;
   height: 50%;
-  background-color: rgb(245, 245, 245);
+  background: linear-gradient(white, black);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  border: 2px ridge grey;
   border-radius: 15px;
   transition: all .5s ease-in-out;
 }
@@ -244,7 +244,9 @@ label {
 
 .toggle-subtraction {
   width: 100%;
+  margin-top: 5px;
 }
+
 
 .subtract-button {
   border: none;
@@ -369,25 +371,60 @@ label {
   .App {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-content: space-around;
   }
 
   .bottom-container {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
+    width: 100%;
+    height: 100%;
   }
 
   .container.left {
-    background-color: blueviolet;
+    margin-bottom: 0px;
+    width: 75%;
   }
 
   .container.right {
     margin-top: 100px;
+    width: 75%;
+  }
+
+  .info-container {
     height: 100%;
-    width: 500px;
-    background-color: cyan;
+  }
+
+  .menu-button {
+    margin-bottom: 15px;
+    height: 25px;
+    width: 25px;
+  }
+
+  .menu-burger::before,
+  .menu-burger::after {
+    width: 25px;
+  }
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .button {
+    width: 50%;
+  }
+
+  .input {
+    width: 50%;
+  }
+
+  .sq-foot-button {
+    width: 100%;
+  }
+
+  .toggle-subtraction {
+    width: 100%;
+  }
+  .menu {
+    height: 75%;
   }
 }

@@ -13,6 +13,7 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
   const onInputSubmit = () => {
     if (subtractionInput.height === undefined || subtractionInput.width === undefined) return alert('Required fields missing')
     setSubtractionList([subtractionInput, ...subtractionList])
+    // setSubtractionInput({})
   }
 
   return (
