@@ -39,7 +39,6 @@ function App() {
   const handleLHWInputs = (e) => {
     const name = e.target.name
     const value = e.target.value
-    console.log(typeof(value));
     setHwInputs({...hwInputs, [name]: value})
   }
 
@@ -139,6 +138,8 @@ function App() {
               subtractFromTotal={subtractFromTotal}
               subtractionList={subtractionList}
               setSubtractionList={setSubtractionList}
+              setTotalFootage={setTotalFootage}
+              totalFootage={totalFootage}
             />
           :
             ''}

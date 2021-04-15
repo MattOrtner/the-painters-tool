@@ -1,6 +1,6 @@
 # onClick of change theme this needs to be some sort of indication
 -subtraction inputs don't clear after submit
--
+-deleting subtraction doesn't affect the total sq feet
 # Totals
 adding some color and font work to jazz it up
 ## Looks
