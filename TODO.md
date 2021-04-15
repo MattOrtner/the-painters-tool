@@ -10,3 +10,8 @@ adding some color and font work to jazz it up
 ## feature/options
 =entering the walls one at a time?
 
+-----
+
+add background colors to buttons
+write a function that with change the css variable value
+onClick= these buttons will call that function that changes value of root--variable

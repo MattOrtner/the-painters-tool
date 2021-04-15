@@ -32,7 +32,7 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
             </div>
           </div>
           <div className="close-button-container">
-            <div className={`close-subtraction-button button ${themeColor}`} onClick={() => setIsSubtracted(false)}> X </div>
+            <div className="close-subtraction-button button" onClick={() => setIsSubtracted(false)}> X </div>
           </div>
         </div>
         <div className="subtraction-input-bottom">
@@ -49,7 +49,7 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
             name="width" 
             placeholder="width"
           />
-          <input type="button" className={`button ${themeColor}`} value="+ subtraction" onClick={onInputSubmit}/>
+          <input type="button" className=" submit-subtraction button" value="+ subtraction" onClick={onInputSubmit}/>
         </div>
       </div>
   )

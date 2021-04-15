@@ -19,19 +19,18 @@ const SubtractionList = ({ themeColor, subtractionList, setSubtractionList, subt
       <div className="subtractions-container">
         {subtractionList.length
           ?
-          
           subtractionList.map((subtractionCase, index) =>
             <div key={`${index}c`} className="DOW-single-subtraction">
               <div key={index}>{subtractionCase.name}</div>
               <div key={`${index}a`}>-{subtractionCase.height * subtractionCase.width} Sq.Ft.</div>
-              <div className={`delete-subtraction button ${themeColor}`} key={`${index}b`} onClick={() => deleteSubtraction(index)}>delete</div>
+              <div className={`delete-subtraction button`} key={`${index}b`} onClick={() => deleteSubtraction(index)}>delete</div>
             </div>
           )
         :
           ''
         }
       </div>
-      <button className={`button ${themeColor}`}onClick={subFromTotal}>APPLY SUBTRACTIONS</button>
+      <button className={`submit-subtraction button`} onClick={subFromTotal}>APPLY SUBTRACTIONS</button>
     </div>
   )
 }

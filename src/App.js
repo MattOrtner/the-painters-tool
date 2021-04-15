@@ -20,7 +20,6 @@ function App() {
   const [totalCost, setTotalCost] = useState(0)
   const [isMenuShown, setIsMenuShown] = useState(false)
   const [open, setOpen] = useState('')
-  const [themeColor, setThemeColor] = useState('one')
 
   useEffect(() => {
     findTotalCost()
@@ -102,9 +101,9 @@ function App() {
       setIsMenuShown(true)
     }
   }
-  const changeTheme = (e) => {
-    const newTheme = e.target.attributes.color.nodeValue
-    setThemeColor(newTheme)
+  const changeTheme = (newColor) => {
+    document.documentElement.style.setProperty('--theme-color', newColor)
+
   }
   
   return (
@@ -114,20 +113,17 @@ function App() {
       </div>
 
       <h1 className="title" >Enter the Dimensions of the Room</h1>
-
       <Menu changeTheme={changeTheme} open={open} />
       <div className="bottom-container">
         <div className="container left">
           <SquareFootInput
             calculate={calculate}
-            themeColor={themeColor}
             handleLHWInputs={handleLHWInputs}
             setTotalFootage={setTotalFootage}
           />
           {isSubtracted ? 
             <>
             <SubtractionInput
-              themeColor={themeColor}
               subtractionList={subtractionList}
               setIsSubtracted={setIsSubtracted}
               setSubtractionList={setSubtractionList}
@@ -135,13 +131,13 @@ function App() {
             </>
             :
             <button
-              className={`toggle-subtraction button ${themeColor}`}
+              className={`toggle-subtraction button`}
               onClick={() => setIsSubtracted(true)}>+ ADD SUBTRACTIONS FOR DOORS AND WINDOWS</button>
             }
           {subtractionList.length ? 
             <SubtractionList
-              themeColor={themeColor}
-              subtractFromTotal={subtractFromTotal} subtractionList={subtractionList}
+              subtractFromTotal={subtractFromTotal}
+              subtractionList={subtractionList}
               setSubtractionList={setSubtractionList}
             />
           :
@@ -150,14 +146,16 @@ function App() {
 
         <div className="container right">
           <InfoContainer
-            themeColor={themeColor}
             totalFootage={totalFootage}
             gallons={gallons}
             handlePaintInput={handlePaintInput}
             handleLHWInputs={handleLHWInputs}
             calculateTotal={calculateTotal}
           />
-          <Totals rate={rate} paintCost={paintCost} totalCost={totalCost}/>
+          <Totals
+            rate={rate}
+            paintCost={paintCost}
+            totalCost={totalCost} />
         </div>
       </div>
     </div>
