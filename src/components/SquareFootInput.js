@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SquareFootInput = ({ calculate, handleLHWInputs, themeColor }) => {
+const SquareFootInput = ({ handleLHWInputs, themeColor, findSquareFeet }) => {
 
   return (
     <div className="inputs">
@@ -51,7 +51,7 @@ const SquareFootInput = ({ calculate, handleLHWInputs, themeColor }) => {
         className={`sq-foot-button button ${themeColor}`}
         type="button"
         value="CALCULATE SQ. FOOTAGE"
-        onClick={calculate}
+        onClick={findSquareFeet}
         />
     </div>
   )
