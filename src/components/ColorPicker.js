@@ -1,12 +1,19 @@
-import React from 'react'
+import React, {useState} from 'react'
 
-const ColorPicker = ({changeTheme}) => {
+const ColorPicker = ({ changeTheme }) => {
+  const [something, setSomething] = useState('#5f9ea0')
+  
+  const inputChange = (color) => {
+    setSomething(color)
+    changeTheme(color)
+  }
+  
   return (
     <input
       className="color-picker"
       type="color"
-      value='#5f9ea0'
-      onChange={e => changeTheme(e.target.value)}
+      value={something}
+      onChange={e => inputChange(e.target.value)}
     />
   )
 }

@@ -1,6 +1,9 @@
-# onClick of change theme this needs to be some sort of indication
+-adding subtraction should update sqfoot logic  
+>>> which updates the gallons logic
+>>> i was looking at 
+flow of dataaaaaa
+
 -subtraction inputs don't clear after submit
--deleting subtraction doesn't affect the total sq feet
 # Totals
 adding some color and font work to jazz it up
 ## Looks
@@ -8,10 +11,6 @@ adding some color and font work to jazz it up
 - adding some fontization
  
 ## feature/options
-=entering the walls one at a time?
+-entering the walls one at a time?
 
 -----
-
-add background colors to buttons
-write a function that with change the css variable value
-onClick= these buttons will call that function that changes value of root--variable

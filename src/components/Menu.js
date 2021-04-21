@@ -2,9 +2,15 @@ import React from 'react'
 import ColorPicker from './ColorPicker'
 
 
-const Menu = ({changeTheme, open, color, setColor}) => {
+const Menu = ({changeTheme, open, color, setColor, showMenu}) => {
   return (
     <div className={`menu ${open}`}>
+      <div className={`menu-inside ${open}`} onClick={() => showMenu()}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div className="menu-burger"></div>
+      </div>
       <div className="theme-title">Choose a different color</div>
       <div className="theme-container">
         <div className="theme first" value="#5f9ea0" onClick={e => changeTheme(e.target.innerText)}>#5f9ea0</div>

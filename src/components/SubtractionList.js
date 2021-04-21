@@ -7,7 +7,6 @@ const SubtractionList = ({totalFootage, setTotalFootage, subtractionList, setSub
     if(subtractionList.length === 0) return alert("Must fill-in subtractions to apply subtractions")
     const individualSubtractions = subtractionList.map((subtractionCase) => subtractionCase.height * subtractionCase.width)
     const subtractionSqFt = individualSubtractions.reduce((acc, sqFt) => acc + sqFt)
-    console.log(individualSubtractions, 'indivSubtractions');
     subtractFromTotal(subtractionSqFt)
   }
 
@@ -16,9 +15,9 @@ const SubtractionList = ({totalFootage, setTotalFootage, subtractionList, setSub
     const removed = subtractionList.filter((_, subtractionIndex) => subtractionIndex === index)
     const { width, height } = removed[0]
     setTotalFootage(parseInt(totalFootage) + (parseInt(height) * parseInt(width)))
-  
     setSubtractionList(newList)
   }
+
   return (
     <div className="subtraction-list">
       <div className="subtractions-container">

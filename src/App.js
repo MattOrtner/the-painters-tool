@@ -21,9 +21,10 @@ function App() {
   const [isMenuShown, setIsMenuShown] = useState(false)
   const [open, setOpen] = useState('')
 
-  useEffect(() => {
-    findTotalCost()
-  })
+  // useEffect(() => {
+  //   findTotalCost()
+  //   findNumOfGallons()
+  // })
 
   const handlePaintInput = (e) => {
     const newCost = e.target.value
@@ -32,7 +33,7 @@ function App() {
 
   const subtractFromTotal = (subtractionAmount) => {
     const newSquareFootage = totalFootage - subtractionAmount
-
+    
     setTotalFootage(newSquareFootage)
   }
 
@@ -42,33 +43,10 @@ function App() {
     setHwInputs({...hwInputs, [name]: value})
   }
 
-  const findSquareFeet = () => {
-    const total = hwInputs.total
-    if (total) {
-      setTotalFootage(parseInt(total))
-    } else {
-      const widthHeight = hwInputs.width * hwInputs.height
-      const lengthHeight = hwInputs.length * hwInputs.height
-      setTotalFootage(parseInt(widthHeight + lengthHeight) * 2)
-    }
-  }
-
   const findRate = () => {
     const { rate } = hwInputs
     const newRate = (parseInt(rate) * parseInt(totalFootage))
     setRate(newRate)
-  }
-
-  const findNumOfGallons = () => {
-    const { height, width, length, total} = hwInputs
-    const HWLSquareFootage = ((parseInt(width) + parseInt(length)) * 2) * parseInt(height)
-    let totalArea = HWLSquareFootage || parseInt(total)
-    let calcGallons = 0
-    while (totalArea > 0) {
-      totalArea -= 400
-      calcGallons += 1
-    }
-    setGallons(calcGallons * 2)
   }
 
   const findGallonsCost = () => {
@@ -84,6 +62,29 @@ function App() {
   const calculate = () => {
     findSquareFeet()
     findNumOfGallons()
+  }
+
+  const findSquareFeet = () => {
+    const total = hwInputs.total
+    if (total) {
+      setTotalFootage(parseInt(total))
+    } else {
+      const widthHeight = hwInputs.width * hwInputs.height
+      const lengthHeight = hwInputs.length * hwInputs.height
+      setTotalFootage(parseInt(widthHeight + lengthHeight) * 2)
+    }
+  }
+
+  const findNumOfGallons = () => {
+    const { height, width, length, total } = hwInputs
+    const HWLSquareFootage = ((parseInt(width) + parseInt(length)) * 2) * parseInt(height)
+    let totalArea = HWLSquareFootage || parseInt(total)
+    let calcGallons = 0
+    while (totalArea > 0) {
+      totalArea -= 400
+      calcGallons += 1
+    }
+    setGallons(calcGallons * 2)
   }
 
   const calculateTotal = () => {
@@ -112,7 +113,7 @@ function App() {
       </div>
 
       <h1 className="title" >Enter the Dimensions of the Room</h1>
-      <Menu changeTheme={changeTheme} open={open} />
+      <Menu changeTheme={changeTheme} open={open} setIsMenuShown={setIsMenuShown} showMenu={showMenu}/>
       <div className="bottom-container">
         <div className="container left">
           <SquareFootInput
@@ -126,6 +127,7 @@ function App() {
               subtractionList={subtractionList}
               setIsSubtracted={setIsSubtracted}
               setSubtractionList={setSubtractionList}
+              subtractFromTotal={subtractFromTotal}
             />
             </>
             :
@@ -152,6 +154,7 @@ function App() {
             handlePaintInput={handlePaintInput}
             handleLHWInputs={handleLHWInputs}
             calculateTotal={calculateTotal}
+            findTotalCost={findTotalCost}
           />
           <Totals
             rate={rate}

@@ -1,19 +1,22 @@
 import React, { useState } from 'react'
 
-const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, setIsSubtracted}) => {
+const SubtractionInput = ({subtractFromTotal, subtractionList, setSubtractionList, setIsSubtracted}) => {
   const [subtractionInput, setSubtractionInput] = useState({})
 
   const onInputChange = (e) => {
     const name = e.target.name
     const value = e.target.value
     setSubtractionInput({ ...subtractionInput, [name]: value })
-
   }
   
   const onInputSubmit = () => {
     if (subtractionInput.height === undefined || subtractionInput.width === undefined) return alert('Required fields missing')
+    const height = parseInt(subtractionInput.height)
+    const width = parseInt(subtractionInput.width)
     setSubtractionList([subtractionInput, ...subtractionList])
-    // setSubtractionInput({})
+    subtractFromTotal(height * width)
+    setSubtractionInput({ height: '', width: '' })
+      
   }
 
   return (
@@ -25,10 +28,12 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
               <label htmlFor="door">Door</label>
             </div>
             <div>
-              <input type="radio" className="radio" radio="window" value="window" name="name"/> Window
+              <input type="radio" className="radio" radio="window" value="window" name="name"/>
+              <label htmlFor="door">Window</label>
             </div>
             <div>
-              <input type="radio" className="radio" radio="other" value="other" name="name" /> Other
+              <input type="radio" className="radio" radio="other" value="other" name="name" />
+              <label htmlFor="door">Other</label>
             </div>
           </div>
           <div className="close-button-container">
@@ -40,8 +45,9 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
             type="number"
             className="subtraction-input"
             name="height" 
-            placeholder="height" 
+            placeholder="height"
             autoFocus={true}
+            value={subtractionInput.height}
           />
           <input 
             type="number"
@@ -49,7 +55,7 @@ const SubtractionInput = ({ themeColor, subtractionList, setSubtractionList, set
             name="width" 
             placeholder="width"
           />
-          <input type="button" className=" submit-subtraction button" value="+ subtraction" onClick={onInputSubmit}/>
+          <input type="button" className="submit-subtraction button" value="+ subtraction" onClick={onInputSubmit}/>
         </div>
       </div>
   )
