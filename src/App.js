@@ -21,10 +21,9 @@ function App() {
   const [isMenuShown, setIsMenuShown] = useState(false)
   const [open, setOpen] = useState('')
 
-  // useEffect(() => {
-  //   findTotalCost()
-  //   findNumOfGallons()
-  // })
+  useEffect(() => {
+    findTotalCost()
+  })
 
   const handlePaintInput = (e) => {
     const newCost = e.target.value
@@ -33,7 +32,6 @@ function App() {
 
   const subtractFromTotal = (subtractionAmount) => {
     const newSquareFootage = totalFootage - subtractionAmount
-    
     setTotalFootage(newSquareFootage)
   }
 
@@ -43,42 +41,19 @@ function App() {
     setHwInputs({...hwInputs, [name]: value})
   }
 
-  const findRate = () => {
-    const { rate } = hwInputs
-    const newRate = (parseInt(rate) * parseInt(totalFootage))
-    setRate(newRate)
-  }
-
-  const findGallonsCost = () => {
-    const totalPaint = (gallons * costPerGallon)
-    const totalPrimer = ((gallons / 2) * costPerGallon) 
-    setPaintCost(totalPaint + totalPrimer)
-  }
-
-  const findTotalCost = () => {
-    setTotalCost(rate + paintCost)
-  }
-
-  const calculate = () => {
-    findSquareFeet()
-    findNumOfGallons()
-  }
-
   const findSquareFeet = () => {
     const total = hwInputs.total
     if (total) {
       setTotalFootage(parseInt(total))
     } else {
-      const widthHeight = hwInputs.width * hwInputs.height
-      const lengthHeight = hwInputs.length * hwInputs.height
+      const widthHeight = parseInt(hwInputs.width) * parseInt(hwInputs.height)
+      const lengthHeight = parseInt(hwInputs.length) * parseInt(hwInputs.height)
       setTotalFootage(parseInt(widthHeight + lengthHeight) * 2)
     }
   }
 
   const findNumOfGallons = () => {
-    const { height, width, length, total } = hwInputs
-    const HWLSquareFootage = ((parseInt(width) + parseInt(length)) * 2) * parseInt(height)
-    let totalArea = HWLSquareFootage || parseInt(total)
+    let totalArea = totalFootage
     let calcGallons = 0
     while (totalArea > 0) {
       totalArea -= 400
@@ -90,6 +65,21 @@ function App() {
   const calculateTotal = () => {
     findGallonsCost()
     findRate()
+  }
+
+  const findGallonsCost = () => {
+    const totalPaint = (gallons * costPerGallon)
+    const totalPrimer = ((gallons / 2) * costPerGallon)
+    setPaintCost(totalPaint + totalPrimer)
+  }
+  const findRate = () => {
+    const { rate } = hwInputs
+    const newRate = (parseInt(rate) * parseInt(totalFootage))
+    setRate(newRate)
+  }
+  
+  const findTotalCost = () => {
+    setTotalCost(rate + paintCost)
   }
 
   const showMenu = () => {
@@ -117,9 +107,8 @@ function App() {
       <div className="bottom-container">
         <div className="container left">
           <SquareFootInput
-            calculate={calculate}
             handleLHWInputs={handleLHWInputs}
-            setTotalFootage={setTotalFootage}
+            findSquareFeet={findSquareFeet}
           />
           {isSubtracted ? 
             <>
@@ -155,6 +144,7 @@ function App() {
             handleLHWInputs={handleLHWInputs}
             calculateTotal={calculateTotal}
             findTotalCost={findTotalCost}
+            findNumOfGallons={findNumOfGallons}
           />
           <Totals
             rate={rate}

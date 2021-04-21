@@ -6,17 +6,18 @@ const SubtractionInput = ({subtractFromTotal, subtractionList, setSubtractionLis
   const onInputChange = (e) => {
     const name = e.target.name
     const value = e.target.value
+    console.log(subtractionInput,'subtraction input')
     setSubtractionInput({ ...subtractionInput, [name]: value })
   }
   
-  const onInputSubmit = () => {
+  const onInputSubmit = (event) => {
+    event.preventDefault()
     if (subtractionInput.height === undefined || subtractionInput.width === undefined) return alert('Required fields missing')
     const height = parseInt(subtractionInput.height)
     const width = parseInt(subtractionInput.width)
     setSubtractionList([subtractionInput, ...subtractionList])
     subtractFromTotal(height * width)
     setSubtractionInput({ height: '', width: '' })
-      
   }
 
   return (
@@ -47,13 +48,16 @@ const SubtractionInput = ({subtractFromTotal, subtractionList, setSubtractionLis
             name="height" 
             placeholder="height"
             autoFocus={true}
-            value={subtractionInput.height}
+            required={true}
+            onChange={onInputChange}
           />
           <input 
             type="number"
             className="subtraction-input"
             name="width" 
             placeholder="width"
+            required={true}
+            onChange={onInputChange}
           />
           <input type="button" className="submit-subtraction button" value="+ subtraction" onClick={onInputSubmit}/>
         </div>

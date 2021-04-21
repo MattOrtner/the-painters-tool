@@ -59,14 +59,17 @@ label {
 .menu.open {
   left: 0;
 }
-
+.gallons-container {
+  display: flex;
+  gap: 1rem;
+}
 .title.open {
   display: none;
 }
 
 .menu-button {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   width: 65px;
   height: 65px;
@@ -141,7 +144,6 @@ label {
   font-family: Georgia, 'Times New Roman', Times, serif;
   font-style: italic;
   margin-bottom: 50px;
-  /* background: white; */
 }
 
 .theme-container {
@@ -278,7 +280,7 @@ label {
   font-size: 1rem;
   border-radius: .5rem;
   cursor: pointer;
-  background-color: #E2E8CE;
+  background-color: var(--theme-color);
   color: white;
 }
 
@@ -402,30 +404,9 @@ label {
   display: flex;
 }
 
-
-.sq-foot-button {
-  background-color: var(--theme-color);
+.gallons-submit {
+  margin-left: 3rem;
 }
-
-.toggle-subtraction {
-  background-color: var(--theme-color);
-}
-
-.add-cost {
-  background-color: var(--theme-color);
-}
-
-.close-subtraction-button {
-  background-color: var(--theme-color);
-}
-
-.submit-subtraction {
-  background-color: var(--theme-color);
-
-}
-
-
-
 @media (max-width: 850px) {
   .App {
     display: flex;
