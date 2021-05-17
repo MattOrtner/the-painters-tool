@@ -6,7 +6,6 @@ const SubtractionInput = ({subtractFromTotal, subtractionList, setSubtractionLis
   const onInputChange = (e) => {
     const name = e.target.name
     const value = e.target.value
-    console.log(subtractionInput,'subtraction input')
     setSubtractionInput({ ...subtractionInput, [name]: value })
   }
   
