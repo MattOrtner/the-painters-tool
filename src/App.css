@@ -183,6 +183,10 @@ label {
   box-shadow: 10px 5px 5px;
 }
 
+.theme:active {
+  transform: translateY(2px);
+}
+
 .color-picker {
   width: 25%;
   height: 10%;
