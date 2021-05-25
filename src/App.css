@@ -216,7 +216,7 @@ label {
   flex-direction: column;
   justify-content: space-evenly;
   border-radius: 0.5rem;
-  align-self: flex-start;
+  align-items: center;
   margin-top: -15px;
 }
 
@@ -240,6 +240,7 @@ label {
   height: 2rem;
   font-size: 1rem;
   flex-grow: 3;
+  width: 100%;
 }
 
 .feet {
