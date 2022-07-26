@@ -20,11 +20,12 @@ function App() {
   const [isMenuShown, setIsMenuShown] = useState(false);
   const [open, setOpen] = useState("");
 
-  useEffect(() => {
-    findTotalCost();
-  });
+  // useEffect(() => {
+  //   findTotalCost();
+  // });
 
   const handlePaintInput = (e) => {
+    e.preventDefault();
     const newCost = e.target.value;
     setCostPerGallon(newCost);
   };
@@ -35,12 +36,13 @@ function App() {
   };
 
   const handleLHWInputs = (e) => {
+    e.preventDefault();
     const name = e.target.name;
     const value = e.target.value;
     setHwInputs({ ...hwInputs, [name]: value });
   };
 
-  const findSquareFeet = () => {
+  const applySquareFeet = () => {
     const total = hwInputs.total;
     if (total) {
       setTotalFootage(parseInt(total));
@@ -112,23 +114,21 @@ function App() {
         <div className="container left">
           <SquareFootInput
             handleLHWInputs={handleLHWInputs}
-            findSquareFeet={findSquareFeet}
+            applySquareFeet={applySquareFeet}
           />
           {isSubtracted ? (
-            <>
-              <SubtractionInput
-                subtractionList={subtractionList}
-                setIsSubtracted={setIsSubtracted}
-                setSubtractionList={setSubtractionList}
-                subtractFromTotal={subtractFromTotal}
-              />
-            </>
+            <SubtractionInput
+              subtractionList={subtractionList}
+              setIsSubtracted={setIsSubtracted}
+              setSubtractionList={setSubtractionList}
+              subtractFromTotal={subtractFromTotal}
+            />
           ) : (
             <button
               className={`toggle-subtraction button`}
               onClick={() => setIsSubtracted(true)}
             >
-              + ADD SUBTRACTIONS FOR DOORS AND WINDOWS
+              CREATE SUBTRACTION
             </button>
           )}
           {subtractionList.length ? (
@@ -140,10 +140,9 @@ function App() {
               totalFootage={totalFootage}
             />
           ) : (
-            ""
+            "there are no subtractions"
           )}
         </div>
-
         <div className="container right">
           <InfoContainer
             totalFootage={totalFootage}

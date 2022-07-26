@@ -24,6 +24,7 @@ label {
 .title {
   text-align: center;
 }
+
 .close-container {
   display: flex;
   justify-content: flex-end;
@@ -211,6 +212,16 @@ label {
 .inputs {
   border: 2px solid black;
   height: 100%;
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-radius: 0.5rem;
+  align-items: center;
+  margin-top: -15px;
+}
+.square-ft-inputs {
+  height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -224,14 +235,13 @@ label {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin-right: 50px;
 }
 
 .input-pairing {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  width: 100%;
+  /* width: 100%; */
   align-items: center;
 }
 
@@ -244,7 +254,7 @@ label {
 }
 
 .feet {
-  padding: 0.5rem;
+  padding: 0.25rem;
 }
 
 .or-input-divider {
@@ -291,6 +301,9 @@ label {
   cursor: pointer;
   background-color: var(--theme-color);
   color: white;
+}
+.button.off {
+  background-color: orange;
 }
 
 .toggle-subtraction {
@@ -413,6 +426,11 @@ label {
 .gallons-submit {
   margin-left: 3rem;
 }
+
+.apply-sq-ft {
+  width: 100%;
+}
+
 @media (max-width: 850px) {
   .App {
     display: flex;
