@@ -1,8 +1,9 @@
 import React from "react";
 
 const SubtractionList = ({
-  totalFootage,
-  setTotalFootage,
+  subtractedFootage,
+  // setTotalFootage,
+  setSubtractedFootage,
   subtractionList,
   setSubtractionList,
   subtractFromTotal,
@@ -11,12 +12,13 @@ const SubtractionList = ({
     if (subtractionList.length === 0)
       return alert("Must fill-in subtractions to apply subtractions");
     const individualSubtractions = subtractionList.map(
-      (subtractionCase) => subtractionCase.height * subtractionCase.width
+      (subtractionCase) =>
+        parseInt(subtractionCase.height) * parseInt(subtractionCase.width)
     );
-    const subtractionSqFt = individualSubtractions.reduce(
+    const subtractionAmount = individualSubtractions.reduce(
       (acc, sqFt) => acc + sqFt
     );
-    subtractFromTotal(subtractionSqFt);
+    subtractFromTotal(subtractionAmount);
   };
 
   const deleteSubtraction = (index) => {
@@ -27,8 +29,8 @@ const SubtractionList = ({
       (_, subtractionIndex) => subtractionIndex === index
     );
     const { width, height } = removed[0];
-    setTotalFootage(
-      parseInt(totalFootage) + parseInt(height) * parseInt(width)
+    setSubtractedFootage(
+      parseInt(subtractedFootage) + parseInt(height) * parseInt(width)
     );
     setSubtractionList(newList);
   };
