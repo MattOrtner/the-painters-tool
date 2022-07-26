@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SubtractionInput from "./components/SubtractionInput";
 import SubtractionList from "./components/SubtractionList";
 import Totals from "./components/Totals";
@@ -20,10 +20,6 @@ function App() {
   const [totalCost, setTotalCost] = useState(0);
   const [isMenuShown, setIsMenuShown] = useState(false);
   const [open, setOpen] = useState("");
-
-  // useEffect(() => {
-  //   findTotalCost();
-  // });
 
   const handlePaintInput = (e) => {
     e.preventDefault();
