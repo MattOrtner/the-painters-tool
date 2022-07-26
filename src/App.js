@@ -67,7 +67,7 @@ function App() {
     setGallons(calcGallons * 2);
   };
 
-  const calculateTotal = () => {
+  const calculateRateAndGallons = () => {
     findGallonsCost();
     findRate();
   };
@@ -83,7 +83,7 @@ function App() {
     setRate(newRate);
   };
 
-  const findTotalCost = () => {
+  const calcFinal = () => {
     setTotalCost(rate + paintCost);
   };
 
@@ -152,11 +152,15 @@ function App() {
             gallons={gallons}
             handlePaintInput={handlePaintInput}
             handleLHWInputs={handleLHWInputs}
-            calculateTotal={calculateTotal}
-            findTotalCost={findTotalCost}
+            calculateRateAndGallons={calculateRateAndGallons}
             findNumOfGallons={findNumOfGallons}
           />
-          <Totals rate={rate} paintCost={paintCost} totalCost={totalCost} />
+          <Totals
+            rate={rate}
+            paintCost={paintCost}
+            totalCost={totalCost}
+            calcFinal={calcFinal}
+          />
         </div>
       </div>
     </div>
