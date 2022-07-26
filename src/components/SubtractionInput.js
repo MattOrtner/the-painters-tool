@@ -10,9 +10,7 @@ const SubtractionInput = ({
 
   const onInputChange = (e) => {
     const name = e.target.name;
-    console.log("name", name);
     const value = e.target.value;
-    console.log("value", value);
     setSubtractionInput({ ...subtractionInput, [name]: value });
   };
 
@@ -23,9 +21,6 @@ const SubtractionInput = ({
       subtractionInput.width === undefined
     )
       return alert("Required fields missing");
-
-    // const height = parseInt(subtractionInput.height);
-    // const width = parseInt(subtractionInput.width);
     setSubtractionList((subtractionList) => [
       {
         name: subtractionInput.name,
@@ -34,7 +29,6 @@ const SubtractionInput = ({
       },
       ...subtractionList,
     ]);
-    // subtractFromTotal(height * width);
     setSubtractionInput({ height: "", width: "" });
   };
 

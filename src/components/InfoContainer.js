@@ -1,7 +1,7 @@
 import React from "react";
 
 const InfoContainer = ({
-  totalFootage,
+  subtractedFootage,
   gallons,
   handlePaintInput,
   handleLHWInputs,
@@ -10,7 +10,7 @@ const InfoContainer = ({
 }) => {
   return (
     <div className="info-container">
-      <div className="total info">TOTAL: {totalFootage} sq.ft.</div>
+      <div className="total info">TOTAL: {subtractedFootage} sq.ft.</div>
       <div className="gallons-container">
         <div className="gallons-info">
           <div className="info">{gallons / 2} gal primer</div>

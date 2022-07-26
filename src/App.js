@@ -9,7 +9,8 @@ import Menu from "./components/Menu";
 
 function App() {
   const [hwInputs, setHwInputs] = useState({});
-  const [totalFootage, setTotalFootage] = useState(0);
+  const [startFootage, setStartFootage] = useState(0);
+  const [subtractedFootage, setSubtractedFootage] = useState(0);
   const [subtractionList, setSubtractionList] = useState([]);
   const [isSubtracted, setIsSubtracted] = useState(false);
   const [rate, setRate] = useState(0);
@@ -31,8 +32,7 @@ function App() {
   };
 
   const subtractFromTotal = (subtractionAmount) => {
-    const newSquareFootage = totalFootage - subtractionAmount;
-    setTotalFootage(newSquareFootage);
+    setSubtractedFootage(startFootage - subtractionAmount);
   };
 
   const handleLHWInputs = (e) => {
@@ -45,17 +45,20 @@ function App() {
   const applySquareFeet = () => {
     const total = hwInputs.total;
     if (total) {
-      setTotalFootage(parseInt(total));
+      setStartFootage(parseInt(total));
+      setSubtractedFootage(parseInt(total));
     } else {
       const widthHeight = parseInt(hwInputs.width) * parseInt(hwInputs.height);
       const lengthHeight =
         parseInt(hwInputs.length) * parseInt(hwInputs.height);
-      setTotalFootage(parseInt(widthHeight + lengthHeight) * 2);
+      const squFootage = parseInt(widthHeight + lengthHeight) * 2;
+      setStartFootage(squFootage);
+      setSubtractedFootage(squFootage);
     }
   };
 
   const findNumOfGallons = () => {
-    let totalArea = totalFootage;
+    let totalArea = subtractedFootage;
     let calcGallons = 0;
     while (totalArea > 0) {
       totalArea -= 400;
@@ -76,7 +79,7 @@ function App() {
   };
   const findRate = () => {
     const { rate } = hwInputs;
-    const newRate = parseInt(rate) * parseInt(totalFootage);
+    const newRate = parseInt(rate) * parseInt(subtractedFootage);
     setRate(newRate);
   };
 
@@ -136,8 +139,8 @@ function App() {
               subtractFromTotal={subtractFromTotal}
               subtractionList={subtractionList}
               setSubtractionList={setSubtractionList}
-              setTotalFootage={setTotalFootage}
-              totalFootage={totalFootage}
+              subtractedFootage={subtractedFootage}
+              setSubtractedFootage={setSubtractedFootage}
             />
           ) : (
             "there are no subtractions"
@@ -145,7 +148,7 @@ function App() {
         </div>
         <div className="container right">
           <InfoContainer
-            totalFootage={totalFootage}
+            subtractedFootage={subtractedFootage}
             gallons={gallons}
             handlePaintInput={handlePaintInput}
             handleLHWInputs={handleLHWInputs}
