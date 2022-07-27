@@ -139,7 +139,7 @@ function App() {
               setSubtractedFootage={setSubtractedFootage}
             />
           ) : (
-            "there are no subtractions"
+            ""
           )}
         </div>
         <div className="container right">
