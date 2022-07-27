@@ -10,29 +10,26 @@ const Menu = ({ changeTheme, open, color, setColor, showMenu }) => {
         <div></div>
         <div className="menu-burger"></div>
       </div>
-      <div className="theme-title">Choose a different color</div>
+      <div className="theme-title">Press the color to change the theme.</div>
       <div className="theme-container">
         <div
           className="theme first"
           value="#5f9ea0"
           onClick={(e) => changeTheme(e.target.innerText)}
-        >
-          #5f9ea0
-        </div>
+        ></div>
         <div
           className="theme second"
           value="#dc143c"
           onClick={(e) => changeTheme(e.target.innerText)}
-        >
-          #dc143c
-        </div>
+        ></div>
         <div
           className="theme third"
           value="#2f4f4f"
           onClick={(e) => changeTheme(e.target.innerText)}
-        >
-          #2f4f4f
-        </div>
+        ></div>
+      </div>
+      <div className="theme-title">
+        Choose your own by pressing the input below
       </div>
       <ColorPicker
         color={color}

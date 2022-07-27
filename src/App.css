@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 :root {
   --theme-color: cadetblue;
 }
@@ -45,8 +49,7 @@ label {
   top: 0;
   left: -100vw;
   width: 100vw;
-  height: 100%;
-  background-color: white;
+  height: 100vh;
   border: 1px solid black;
   border-radius: 15px;
   display: flex;
@@ -94,7 +97,8 @@ label {
   width: 50px;
   height: 4px;
   background: black;
-  border-radius: 5px;
+  top: 0;
+  right: 0;
   transition: all 0.5s ease-in-out;
 }
 
@@ -105,7 +109,6 @@ label {
   width: 50px;
   height: 4px;
   background: black;
-  border-radius: 5px;
   transition: all 0.5s ease-in-out;
 }
 
@@ -119,7 +122,6 @@ label {
 
 .menu-button.open,
 .menu-inside.open .menu-burger {
-  transform: translateX(-50px);
   background: transparent;
 }
 
