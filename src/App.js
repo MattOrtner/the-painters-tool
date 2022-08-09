@@ -70,7 +70,7 @@ function App() {
 
   const findGallonsCost = () => {
     const totalPaint = gallons * costPerGallon;
-    const totalPrimer = (gallons / 2) * costPerGallon;
+    const totalPrimer = Math.ceil(gallons / 2) * costPerGallon;
     setPaintCost(totalPaint + totalPrimer);
   };
   const findRate = () => {

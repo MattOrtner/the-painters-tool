@@ -7,7 +7,6 @@ const SquareFootInput = ({ handleLHWInputs, applySquareFeet }) => {
   return (
     <div className="inputs">
       <div className="square-ft-inputs">
-        <h3>How would you like to input?</h3>
         {isLWHInputOpen ? (
           <div className="top-inputs">
             <div className="input-pairing">

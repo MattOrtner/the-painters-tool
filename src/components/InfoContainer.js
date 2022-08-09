@@ -5,7 +5,7 @@ const InfoContainer = ({
   gallons,
   handlePaintInput,
   handleLHWInputs,
-  calculateTotal,
+  calculateRateAndGallons,
   findNumOfGallons,
 }) => {
   return (
@@ -47,7 +47,7 @@ const InfoContainer = ({
           type="button"
           className="add-cost button"
           value="ADD RATE + COST"
-          onClick={calculateTotal}
+          onClick={calculateRateAndGallons}
         />
       </div>
       <div className="small-print">[ 400 square feet per gallon ]</div>
